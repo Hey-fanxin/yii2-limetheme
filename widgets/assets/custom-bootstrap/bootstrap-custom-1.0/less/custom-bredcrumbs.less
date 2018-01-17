@@ -1,0 +1,29 @@
+//
+// Breadcrumbs
+// --------------------------------------------------
+
+
+.breadcrumb {
+  padding: 0; //@breadcrumb-padding-vertical @breadcrumb-padding-horizontal;
+  margin-bottom: 0; //@line-height-computed;
+  list-style: none;
+  background-color: transparent; //@breadcrumb-bg;
+  border-radius: @border-radius-base;
+
+  > li {
+    display: inline-block;
+
+    + li:before { 
+      content: "—";
+      padding: 0 5px;
+      color: @breadcrumb-color;
+    }
+    > a {
+        color: @breadcrumb-active-color;
+    }
+  }
+
+  > .active {
+    color: @brand-primary;
+  }
+}

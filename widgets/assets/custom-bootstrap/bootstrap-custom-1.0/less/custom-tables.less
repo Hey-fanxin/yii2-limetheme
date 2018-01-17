@@ -1,0 +1,42 @@
+
+.table-bordered {
+  border: 1px solid @table-border-color;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 1px solid @table-border-color;
+        text-align: center;
+        color:#333;
+      }
+    }
+  }
+  > tbody{
+    > tr {
+      &:hover,
+      &:focus{
+        background: #f8f8f8;
+      }
+    }
+  }
+  > thead > tr {
+    > th,
+    > td {
+      border-bottom-width: 1px;
+      background: #F4F5F9;
+      font-weight: 400;
+      cursor: default;
+    }
+  }
+  .dropdown-toggle{
+      display: block;
+      text-decoration: none;
+      color: #333;
+      &:hover{
+          color: #333;
+      }
+  }
+}
+

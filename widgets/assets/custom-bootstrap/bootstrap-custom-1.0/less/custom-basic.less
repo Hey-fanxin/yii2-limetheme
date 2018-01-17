@@ -1,0 +1,49 @@
+html,
+body{
+    height: 100%;
+    font-family: "Microsoft YaHei, HelveticaNeueLTPro-Roman, NotoSansHans-Regular";
+    font-size: 14px;
+    background: #F1F1F1;
+}
+.dropup,
+.dropdown{
+    .btn-default{
+		min-width: @input-text-width;
+		min-height: @input-text-height;
+		padding: @input-text-padding;
+		color: @input-text-color;
+		font-size: @input-text-font;
+		box-sizing: border-box;
+		text-align: center;
+		.fa{
+			float: right;
+			margin-top: 3px;
+		}
+	}
+	.btn-select {padding:1px 10px;}
+	ul{
+		min-width: @input-text-width;
+	}
+}
+.custom-h{
+	position: relative;
+    font-weight: bold;
+    color:#000;
+    padding: 10px 20px;
+    height:40px;
+    background: #F8F8F8;
+	overflow: hidden;
+	line-height: 1.5;
+	border-radius: 3px;
+	cursor: default;
+    >span{
+		position: absolute;
+		left:10px;
+		top:10px;
+		width:4px;
+		height: 18px;
+		margin-right: 10px;
+		background: #ffa82a;
+      	color:#FFA82A;
+    }
+}

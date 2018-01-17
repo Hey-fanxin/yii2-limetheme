@@ -1,0 +1,28 @@
+//
+// Panels
+// --------------------------------------------------
+
+
+// Base class
+.panel {
+  padding: 10px 17px;
+  border-radius: 2px; //@panel-border-radius;
+}
+.panel-header {
+    &:extend(.clearfix all);
+    padding: 3px;
+    margin: 0 auto;
+    border-bottom: 1px dashed #e6e6e6;
+    margin-bottom: 20px;
+}
+// Panel contents
+.panel-body {
+  padding: 0 0 10px 0; //@panel-body-padding;
+  &:extend(.clearfix all);
+  > div {
+    border-right: 1px dashed #e6e6e6;
+  }
+  >div:last-child {
+    border-right: 0;
+  }
+}

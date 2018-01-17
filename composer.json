@@ -1,0 +1,13 @@
+{
+    "name": "bianjunping/qmyl_theme",
+    "description": "This is a partial the theme files and some functional components of quietly elegant, if you want to modify, please modify the source code provided in the package to the editor",
+    "type": "library",
+    "authors": [
+        {
+            "name": "bianjunping",
+            "email": "bianjunping@limefamily.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

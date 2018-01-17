@@ -1,0 +1,6 @@
+{
+  "name": "custom-bootstrap",
+  "devDependencies": {
+    "bootstrap": "3.3.7"
+  },
+}
