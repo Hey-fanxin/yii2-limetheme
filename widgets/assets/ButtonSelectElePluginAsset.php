@@ -6,13 +6,13 @@
  * Time: 下午3:16
  */
 
-namespace common\widgets\assets;
+namespace limefamily\widgets\assets;
 
 use yii\web\AssetBundle;
 
 class ButtonSelectElePluginAsset extends AssetBundle
 {
-    public $baseUrl = '/hly/common/widgets';
+    public $baseUrl = '@vendor/limefamily/widgets';
     public $js = [
         'js/buttonSelectEle.js',
     ];

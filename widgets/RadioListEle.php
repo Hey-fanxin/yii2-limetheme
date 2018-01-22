@@ -6,7 +6,7 @@
  * Time: 下午3:52
  */
 
-namespace common\widgets;
+namespace limefamily\widgets;
 
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;

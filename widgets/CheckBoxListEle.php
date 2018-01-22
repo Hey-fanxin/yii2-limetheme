@@ -6,7 +6,7 @@
  * Time: 上午11:16
  */
 
-namespace common\widgets;
+namespace limefamily\widgets;
 
 class CheckBoxListEle extends  RadioListEle
 {

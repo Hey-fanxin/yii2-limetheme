@@ -5,12 +5,12 @@
  * Date: 2018/1/5
  * Time: 上午9:33
  */
-namespace common\widgets;
+namespace limefamily\widgets;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 use yii\helpers\Html;
-use common\widgets\assets\Custom_MetisMenuAsset;
+use limefamily\widgets\assets\Custom_MetisMenuAsset;
 /**
  * Class Menu
  * Theme menu widget.

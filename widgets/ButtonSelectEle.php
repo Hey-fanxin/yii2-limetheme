@@ -6,7 +6,7 @@
  * Time: 下午2:11
  */
 
-namespace common\widgets;
+namespace limefamily\widgets;
 
 use yii\helpers\Html;
 use yii\helpers\Json;
@@ -15,7 +15,7 @@ use yii\base\InvalidConfigException;
 use yii\widgets\ActiveForm;
 use yii\bootstrap\ButtonDropdown;
 use yii\bootstrap\Button;
-use common\widgets\assets\ButtonSelectElePluginAsset;
+use limefamily\widgets\assets\ButtonSelectElePluginAsset;
 
 class ButtonSelectEle extends  \yii\base\widget
 {

@@ -6,13 +6,13 @@
  * Time: 下午5:51
  */
 
-namespace common\widgets\assets;
+namespace limefamily\widgets\assets;
 
 use yii\web\AssetBundle;
 
 class Custom_MetisMenuAsset extends AssetBundle
 {
-    public $baseUrl = '/hly/common/widgets';
+    public $baseUrl = '@vendor/limefamily/widgets';
     public $js = [
         'js/metisMenu.js',
     ];
