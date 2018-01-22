@@ -1,7 +1,8 @@
 {
     "name": "limefamily/yii2-limetheme",
     "description": "This is a partial the theme files and some functional components of quietly elegant, if you want to modify, please modify the source code provided in the package to the editor",
-    "type": "library",
+    "type": "yii2-extension",
+    "keywords": ["yii2", "theme", "lime", "bootstrap"],
     "license": "MIT",
     "authors": [
         {
@@ -9,7 +10,6 @@
             "email": "bianjunping@limefamily.com"
         }
     ],
-    "minimum-stability": "stable",
     "require": {
         "yiisoft/yii2": "2.*",
         "rmrevin/yii2-fontawesome": "~2.9"
