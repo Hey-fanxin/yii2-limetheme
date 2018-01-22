@@ -1,0 +1,124 @@
+input[type="text"]{
+    min-width: @input-text-width;
+    height: @input-text-height;
+    padding: @input-text-padding;
+    color: @input-text-color;
+    font-size: @input-text-font;
+    box-sizing: border-box;
+}
+input[type="text"].input-sm{
+    width: auto !important;
+    border-radius: 3px;
+}
+input[type="text"].input-lg{
+    width: (@input-text-width * 1.5) !important;
+    border-radius: 3px;
+}
+input:hover{
+    background-color: @input-hover-bg; 
+    color: @input-hover-color;
+}
+label {
+  display: inline-block;
+  max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
+  margin-bottom: 5px;
+  font-weight: 400;
+}
+.form-control {
+  // Disabled and read-only inputs
+  //
+  // HTML5 says that controls under a fieldset > legend:first-child won't be
+  // disabled if the fieldset is disabled. Due to implementation difficulty, we
+  // don't honor that edge case; we style them as disabled anyway.
+  > option{
+      &:hover{
+          background: red;
+      }
+  }
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    background-color: @input-bg-disabled;
+    color: @input-hover-color;
+    opacity: .6; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
+  }
+}
+
+.form-control:focus {
+    border-color: @brand-primary;
+    // outline: 0;
+    // -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(127,187,56, .6);
+    // box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(127,187,56, .6);
+}
+
+.radio-custom,
+.checkbox-custom {
+
+    input[type=checkbox],
+    input[type=radio]{
+        visibility: hidden;
+    }
+    font-weight: 400;
+    position: relative;
+    display: inline-block;
+    padding: 0 5px;
+    margin-right: 5px;
+    margin-bottom: 0;
+    height: 25px;
+    line-height: 31px;
+    cursor: pointer;
+
+    i{
+        -webkit-transition: all .3s ease;
+        -moz-transition: all .3s ease;
+        -o-transition: all .3s ease;
+        -ms-transition: all .3s ease;
+        transition: all .3s ease;   
+        color: #999;
+    }
+    .fa-li{
+        width: auto;
+    }
+    .fa-lg{
+        font-size: 1.27em;
+    }
+    .fa-li.fa-lg{
+        left: -.15714em;
+    }
+    .fl{
+        float: left;
+    }
+    .fr{
+        float: right;
+    }
+}
+.radio-custom {
+    .fa-li{
+        top: .48285714em;
+    }
+    .fa-lg{
+        font-size: 1.37em;
+    }
+    i:before{
+        content: "\f1db";
+    }
+    input[type=radio]:checked + i:before {
+        content: "\f192";
+        color: @brand-primary;
+    }
+}
+
+.checkbox-custom {
+    .fa-li{
+        top: .57285714em;
+    }
+    i:before{
+        content: "\f096";
+    }
+
+    input[type=checkbox]:checked + i:before {
+        content: "\f14a";
+        color: @brand-primary;
+    }
+    
+}
