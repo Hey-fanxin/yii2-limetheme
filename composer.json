@@ -1,5 +1,5 @@
 {
-    "name": "limefamily/yii2-limetheme",
+    "name": "yii2-limetheme",
     "description": "This is a partial the theme files and some functional components of quietly elegant, if you want to modify, please modify the source code provided in the package to the editor",
     "type": "library",
     "license": "MIT",
