@@ -4,6 +4,7 @@
     "type": "yii2-extension",
     "keywords": ["yii2", "theme", "lime", "bootstrap"],
     "license": "MIT",
+    "Language": "php",
     "authors": [
         {
             "name": "bianjunping",
