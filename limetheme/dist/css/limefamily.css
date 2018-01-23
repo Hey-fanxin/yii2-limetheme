@@ -7846,6 +7846,9 @@ fieldset[disabled] .form-control {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.tab-content {
+  padding: 14px 0;
+}
 .navbar {
   position: relative;
   min-height: 62px;

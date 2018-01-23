@@ -172,6 +172,12 @@ module.exports = function (grunt) {
         src: ['*.{eot,svg,ttf,woff,woff2,otf}'],
         dest: 'dist/fonts/'
       },
+      bootfonts:{
+        expand: true,
+        cwd: 'bootstrap/fonts/',
+        src: ['*.{eot,svg,ttf,woff,woff2,otf}'],
+        dest: 'dist/fonts/'
+      },
       images: {
         expand: true,
         cwd: 'build/images/',
@@ -254,9 +260,9 @@ module.exports = function (grunt) {
   // CSS distribution task.
   grunt.registerTask('less-compile', ['less:compileCore', 'less:compileTheme']);
   grunt.registerTask('dist-css', ['less-compile', 'autoprefixer:core', 'autoprefixer:theme', 'csscomb:dist', 'cssmin:minifyCore', 'cssmin:minifyTheme']);
-
+  grunt.registerTask('copy-fonts', ['copy:fonts', 'copy:bootfonts', 'copy:images',]);
   // Full distribution task.
-  grunt.registerTask('dist', ['clean:dist', 'dist-css', 'copy:fonts', 'copy:images', 'dist-js']);
+  grunt.registerTask('dist', ['clean:dist', 'dist-css', 'copy-fonts', 'dist-js']);
 
   // Default task.
   grunt.registerTask('default', ['clean:dist', 'copy:fonts', 'test']);
