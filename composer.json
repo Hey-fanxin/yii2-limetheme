@@ -10,7 +10,6 @@
             "email": "bianjunping@limefamily.com"
         }
     ],
-    "minimum-stability": "stable",
     "require": {
         "yiisoft/yii2": "2.*",
         "rmrevin/yii2-fontawesome": "~2.9"
