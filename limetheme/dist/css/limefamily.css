@@ -7671,6 +7671,7 @@ fieldset[disabled] .form-control {
   border-radius: 0;
 }
 .nav-tabs > li > a:hover {
+  background-color: #fff;
   border-color: transparent;
   border-bottom-color: #ccc;
 }
