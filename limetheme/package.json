@@ -1,7 +1,7 @@
 {
   "name": "limefamily",
-  "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
-  "version": "3.3.7",
+  "description": "This is a partial the theme files and some functional components of quietly elegant, if you want to modify, please modify the source code provided in the package to the editor",
+  "version": "1.0.1",
   "keywords": [
     "css",
     "less",
@@ -9,16 +9,18 @@
     "responsive",
     "front-end",
     "framework",
+    "limefamily",
+    "theme",
     "web"
   ],
   "homepage": "http://getbootstrap.com",
-  "author": "Twitter, Inc.",
+  "author": "limefamily--bjp",
   "scripts": {
-    "change-version": "node grunt/change-version.js",
+    "dist": "grunt dist",
     "update-shrinkwrap": "npm shrinkwrap --dev && shx mv ./npm-shrinkwrap.json ./grunt/npm-shrinkwrap.json",
     "test": "grunt test"
   },
-  "style": "dist/css/bootstrap.css",
+  "style": "dist/css/limefamily.css",
   "less": "./build/less/limefamily.less",
   "main": "./dist/js/npm",
 
@@ -67,9 +69,9 @@
     "LICENSE"
   ],
   "jspm": {
-    "main": "js/bootstrap",
+    "main": "js/limefamily",
     "shim": {
-      "js/bootstrap": {
+      "js/limefamily": {
         "deps": "jquery",
         "exports": "$"
       }
