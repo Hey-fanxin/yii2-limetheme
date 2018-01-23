@@ -12,7 +12,7 @@ use yii\web\AssetBundle;
 
 class ButtonSelectElePluginAsset extends AssetBundle
 {
-    public $baseUrl = '@vendor/limefamily/widgets';
+    public $sourcePath = '@vendor/limefamily/yii2-limetheme/widgets';
     public $js = [
         'js/buttonSelectEle.js',
     ];
