@@ -1,7 +1,7 @@
 {
   "name": "limefamily",
   "description": "This is a partial the theme files and some functional components of quietly elegant, if you want to modify, please modify the source code provided in the package to the editor",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "keywords": [
     "css",
     "less",
@@ -13,7 +13,7 @@
     "theme",
     "web"
   ],
-  "homepage": "http://getbootstrap.com",
+  "homepage": "http://xxxxxxxx.com",
   "author": "limefamily--bjp",
   "scripts": {
     "dist": "grunt dist",

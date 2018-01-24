@@ -1,5 +1,5 @@
 /*!
- * Bootstrap's Gruntfile
+ * Limefamily's Gruntfile
  * http://getbootstrap.com
  * Copyright 2013-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -26,8 +26,8 @@ module.exports = function (grunt) {
     // Metadata.
     pkg: grunt.file.readJSON('package.json'),
     banner: '/*!\n' +
-            ' * Bootstrap v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
-            ' * Copyright 2011-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+            ' * LimeFamily v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
+            ' * Copyright 2017-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
             ' * Licensed under the <%= pkg.license %> license\n' +
             ' */\n',
     jqueryCheck: configBridge.config.jqueryCheck.join('\n'),
@@ -45,7 +45,18 @@ module.exports = function (grunt) {
       },
       bootstrap: {
         src: [
-          'bootstrap/dist/js/bootstrap.js',
+          'bootstrap/js/transition.js',
+          'bootstrap/js/alert.js',
+          'bootstrap/js/button.js',
+          'bootstrap/js/carousel.js',
+          'bootstrap/js/collapse.js',
+          'bootstrap/js/dropdown.js',
+          'bootstrap/js/modal.js',
+          'bootstrap/js/tooltip.js',
+          'bootstrap/js/popover.js',
+          'bootstrap/js/scrollspy.js',
+          'bootstrap/js/tab.js',
+          'bootstrap/js/affix.js',
           'build/js/menu.js',
           'build/js/layoutBox.js',
           'build/js/custom.js',
@@ -54,7 +65,18 @@ module.exports = function (grunt) {
       },
       phpBootstrap: {
         src: [
-          'bootstrap/dist/js/bootstrap.js',
+          'bootstrap/js/transition.js',
+          'bootstrap/js/alert.js',
+          'bootstrap/js/button.js',
+          'bootstrap/js/carousel.js',
+          'bootstrap/js/collapse.js',
+          'bootstrap/js/dropdown.js',
+          'bootstrap/js/modal.js',
+          'bootstrap/js/tooltip.js',
+          'bootstrap/js/popover.js',
+          'bootstrap/js/scrollspy.js',
+          'bootstrap/js/tab.js',
+          'bootstrap/js/affix.js',
           'build/js/layoutBox.js',
           'build/js/custom-php.js',
         ],
