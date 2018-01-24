@@ -1,3 +1,4 @@
 .idea
 /vendor/
+.vscode
 limetheme/yii2-limetheme/node_modules
