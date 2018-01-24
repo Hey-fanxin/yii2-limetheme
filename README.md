@@ -3,7 +3,7 @@ Custom theme components and parts of function group
 
 这是一套基于bootstrap框架编写的后台模板主题，和PHP小部件
 
-!["Yii2 Limefamily Presentation"](https://cloud.githubusercontent.com/assets/874234/7603896/753228ee-f943-11e4-9d42-2a31b41eb42d.jpg)
+!["Yii2 Limefamily Presentation"](https://github.com/namebjp/yii2-limetheme/blob/master/limetheme/dist/images/limefamily.png)
 
 Assets for[Limefamily plugins], So if you want to use any of them we recommend to create a custom bundle where you list the plugin files you need:
 ```php
