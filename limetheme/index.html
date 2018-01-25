@@ -57,6 +57,7 @@
                         <a>
                             <i class="navmenu-list-icon fa fa-qq">
                             </i>四字列表
+                            <span class="fa custom-arrow-icon"></span>
                         </a>
                         <ul class="nav">
                             <li>
@@ -74,6 +75,7 @@
                         <a>
                             <i class="navmenu-list-icon fa fa-qq">
                             </i>五个字列表
+                            <span class="fa custom-arrow-icon"></span>
                         </a>
                         <ul class="nav">
                             <li>
@@ -92,6 +94,7 @@
                             <i class="list-icon">
                                 <img src="./dist/images/htgl.png">
                             </i>home3333
+                            <span class="fa custom-arrow-icon"></span>
                         </a>
                         <ul class="nav">
                             <li>
@@ -110,6 +113,7 @@
                             <i class="list-icon">
                                 <img src="./dist/images/htgl.png">
                             </i>home1444
+                            <span class="fa custom-arrow-icon"></span>
                         </a>
                         <ul class="nav">
                             <li>
@@ -243,7 +247,7 @@
             <div class="row">
                 <div class="col-xs-6 col-md-3">
                     <div class="dropup">
-                        <button class="btn btn-default btn-select dropdown-toggle" type="text" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                        <button class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             dropup
                             <i class="fa fa-unsorted" aria-hidden="true"></i>
@@ -267,24 +271,24 @@
                 </div>
                 <div class="col-xs-6 col-md-3">
                     <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="text" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                        <button id="select" class="dropdown-toggle btn btn-default btn-select" type="text" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="true">
-                            Dropdown
+                            <span>select</span>
                             <i class="fa fa-unsorted" aria-hidden="true"></i>
                         </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <ul class="dropdown-menu">
                             <li>
-                                <a href="#">Action</a>
+                                <a href="javascript(0)">Action</a>
                             </li>
                             <li>
-                                <a href="#">Another action</a>
+                                <a href="javascript(0)">Another action</a>
                             </li>
                             <li>
-                                <a href="#">Something else here</a>
+                                <a href="javascript(0)">Something else here</a>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
-                                <a href="#">Separated link</a>
+                                <a href="javascript(0)">Separated link</a>
                             </li>
                         </ul>
                     </div>
@@ -316,19 +320,19 @@
                             <th>Table heading</th>
                             <th>
                                 <div class="dropdown">
-                                    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Small button
-                                        <span class="caret"></span>
+                                    <a id="select2" class="dropdown-toggle btn-select" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span>Small button</span>
+                                        <i class="caret"></i>
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="#">Regular link</a>
+                                            <a>Regular link</a>
                                         </li>
                                         <li class="disabled">
-                                            <a href="#">Disabled link</a>
+                                            <a>Disabled link</a>
                                         </li>
                                         <li>
-                                            <a href="#">Another link</a>
+                                            <a>Another link</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -420,5 +424,6 @@
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="./dist/js/limefamily.js"></script>
+    <script src="./dist/js/custom.js"></script>
 </body>
 </html>

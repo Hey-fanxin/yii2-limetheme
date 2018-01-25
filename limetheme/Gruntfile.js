@@ -59,28 +59,10 @@ module.exports = function (grunt) {
           'bootstrap/js/affix.js',
           'build/js/menu.js',
           'build/js/layoutBox.js',
-          'build/js/custom.js',
+          'build/js/buttonSelectEle.js',
+          'build/js/resizeWin.js',
         ],
         dest: 'dist/js/<%= pkg.name %>.js'
-      },
-      phpBootstrap: {
-        src: [
-          'bootstrap/js/transition.js',
-          'bootstrap/js/alert.js',
-          'bootstrap/js/button.js',
-          'bootstrap/js/carousel.js',
-          'bootstrap/js/collapse.js',
-          'bootstrap/js/dropdown.js',
-          'bootstrap/js/modal.js',
-          'bootstrap/js/tooltip.js',
-          'bootstrap/js/popover.js',
-          'bootstrap/js/scrollspy.js',
-          'bootstrap/js/tab.js',
-          'bootstrap/js/affix.js',
-          'build/js/layoutBox.js',
-          'build/js/custom-php.js',
-        ],
-        dest: 'dist/js/<%= pkg.name %>-php.js'
       }
     },
 
@@ -95,10 +77,6 @@ module.exports = function (grunt) {
       core: {
         src: '<%= concat.bootstrap.dest %>',
         dest: 'dist/js/<%= pkg.name %>.min.js'
-      },
-      corephp: {
-        src: '<%= concat.phpBootstrap.dest %>',
-        dest: 'dist/js/<%= pkg.name %>-php.min.js'
       }
     },
 
@@ -205,9 +183,14 @@ module.exports = function (grunt) {
         cwd: 'build/images/',
         src: ['*.{png,jpg,gif}'],
         dest: 'dist/images/'
+      },
+      js:{
+        expand: true,
+        cwd: 'build/js/',
+        src:['custom.js'],
+        dest: 'dist/js/'
       }
     },
-
     connect: {
       server: {
         options: {
@@ -277,14 +260,14 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
 
   // JS distribution task.
-  grunt.registerTask('dist-js', ['concat', 'uglify:core', 'uglify:corephp', 'commonjs']);
+  grunt.registerTask('dist-js', ['concat', 'uglify:core', 'commonjs']);
 
   // CSS distribution task.
   grunt.registerTask('less-compile', ['less:compileCore', 'less:compileTheme']);
   grunt.registerTask('dist-css', ['less-compile', 'autoprefixer:core', 'autoprefixer:theme', 'csscomb:dist', 'cssmin:minifyCore', 'cssmin:minifyTheme']);
   grunt.registerTask('copy-fonts', ['copy:fonts', 'copy:bootfonts', 'copy:images',]);
   // Full distribution task.
-  grunt.registerTask('dist', ['clean:dist', 'dist-css', 'copy-fonts', 'dist-js']);
+  grunt.registerTask('dist', ['clean:dist', 'dist-css', 'copy-fonts', 'dist-js', 'copy:js']);
 
   // Default task.
   grunt.registerTask('default', ['clean:dist', 'copy:fonts', 'test']);

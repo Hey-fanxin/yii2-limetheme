@@ -15,7 +15,7 @@ use yii\base\InvalidConfigException;
 use yii\widgets\ActiveForm;
 use yii\bootstrap\ButtonDropdown;
 use yii\bootstrap\Button;
-use limefamily\widgets\assets\ButtonSelectElePluginAsset;
+//use limefamily\widgets\assets\ButtonSelectElePluginAsset;
 
 class ButtonSelectEle extends  \yii\base\widget
 {
@@ -76,7 +76,7 @@ class ButtonSelectEle extends  \yii\base\widget
     public function run()
     {
         parent::run();
-        ButtonSelectElePluginAsset::register($this->getView());
+        //ButtonSelectElePluginAsset::register($this->getView());
         return $this->parseMarkup();
     }
 

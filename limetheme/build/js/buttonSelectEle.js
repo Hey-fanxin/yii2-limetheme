@@ -39,7 +39,6 @@
                     if(typeof $options['fn'] == 'function') {
                         $options['fn']($(this))
                     }
-
                 })
         }
     }

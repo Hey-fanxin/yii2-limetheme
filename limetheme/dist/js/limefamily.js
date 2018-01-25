@@ -2376,25 +2376,17 @@ if (typeof jQuery === 'undefined') {
 
 }(jQuery);
 
-/* ========================================================================
- * Bootstrap: metismenu.js v3.3.7
- * http://getbootstrap.com/javascript/#metismenus
- * ========================================================================
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
 + function ($) {
     'use strict';
 
     // METISMENU CLASS DEFINITION ======================
 
-   var pluginName = "metisMenu",
+   var pluginName = "sideMenu",
         defaults = {
             toggle: true
         };
 
-    function MetisMenu(element, options) {
+    function SideMenu(element, options) {
         this.element = element;
         this.settings = $.extend({}, defaults, options);
         this._defaults = defaults;
@@ -2402,16 +2394,11 @@ if (typeof jQuery === 'undefined') {
         this.init();
     }
 
-    MetisMenu.prototype.init = function () {
+    SideMenu.prototype.init = function () {
 
         var $this = $(this.element),
             $toggle = this.settings.toggle;
 
-        $this
-            .find('li')
-            .has('ul')
-            .children('a')
-            .append('<span class="fa custom-arrow-icon"></span>');
         $this
             .find('li.active')
             .has('ul')
@@ -2466,10 +2453,10 @@ if (typeof jQuery === 'undefined') {
     $.fn[pluginName] = function (options) {
         return this.each(function () {
             var $this   = $(this)
-            var data    = $this.data('bs.metisMenu')
+            var data    = $this.data('bs.sideMenu')
             var options = typeof option == 'object' && option
 
-            if (!data) $this.data('bs.metisMenu', (data = new MetisMenu(this, options)))
+            if (!data) $this.data('bs.sideMenu', (data = new SideMenu(this, options)))
         });
     };
 
@@ -2593,80 +2580,86 @@ if (typeof jQuery === 'undefined') {
         b.call(a(e.button))
     })
 }(jQuery);
+/**
+ * Created by bianjunping on 2018/1/12.
+ */
+
++ (function($) {
+    'use strict';
+
+    //var menu   = '.dropdown-menu'
+
+    var pluginName = "dropDownMenuSelect",
+        defaults = {
+            checked: ''
+        };
+
+    var Plugin = function (element, options) {
+
+        this.element = element;
+        this.options = $.extend({}, defaults, options);
+        this._name = pluginName;
+        this.init();
+
+    }
+
+    Plugin.prototype = {
+        init: function(){
+            var $this = $(this.element).parent('div').has('ul.dropdown-menu').children('ul'),
+                $checked = this.options.checkbox,
+                $options = this.options;
+            $this
+                .find('li')
+                .children('a')
+                .on('click', function (e) {
+                    e.preventDefault();
+
+                    var $parent_sib = $(this).parent('li').parent('ul').siblings();
+                    $parent_sib
+                        .children('span')
+                        .html($(this).html());
+                    if(typeof $options['fn'] == 'function') {
+                        $options['fn']($(this))
+                    }
+                })
+        }
+    }
+
+    $.fn[pluginName] = function (options) {
+        return this.each(function () {
+
+            if (!$.data(this, "plugin_" + pluginName)) {
+                $.data(this, "plugin_" + pluginName, new Plugin(this, options));
+            }
+        });
+    };
+})(jQuery);
 (function ($) {
     "use strict";
     var mainApp = {
-        creatRadioCustomEle: function (params) {
-
-            //  初始化自拟定的单选框和复选框
-            $('.radio-custom input').after('<i class="fa-li fa fa-lg">');
-            $('.checkbox-custom input').after('<i class="fa-li fa fa-lg"></i>');
-            //  初始化h5标题样式所需元素
-            $('.custom-h').prepend('<span></span>');
-        },
-        openModal: function(){
-            $(".open-modal").click(function () {
-                $("#myModal").modal("show");
-            });
-        },
-        metisMenu: function () {
-            $('#main-menu').metisMenu();
-        },
-
-        showRoute: function () {
-            $('[data-route]').bind("click", function(){
-                var route = $(this).attr('data-route').split('/');
-                $('#route').html('');
-                for(var i=0; i< route.length; i++){
-                    var text = $('<span></span>').text(route[i]+' — ');
-                    if(i == route.length - 1){
-                        text = $('<span class="active"></span>').text(route[i]);
-                    }
-                    $('#route').append(text);
-                }
-            })
-        },
-        resizeWindow: function (){
+        resizeWindow: function () {
 
             if ($(window).width() < 1336) {
-                $('div.sidebar-collapse').addClass('collapse')
-                $('.navmenu').css({
-                    'height': parseInt($(window).height()) - 62
-                });
-                $('.wrapper-page-container').css({
-                    'height': parseInt($(window).height()) - 83
-                });
+                $('div.sidebar-collapse').addClass('collapse');
             } else {
                 $('div.sidebar-collapse').removeClass('collapse');
-                $('.navmenu').css({
-                    'height': parseInt($(window).height()) - 62
-                });
-                $('.wrapper-page-container').css({
-                    'height': parseInt($(window).height()) - 83
-                });
             }
+            $('.navmenu').css({
+                'height': parseInt($(window).height()) - 62
+            });
+            $('.wrapper-page-container').css({
+                'height': parseInt($(window).height()) - 83
+            });
         },
         loadMenu: function () {
-            $(window).bind("load resize", function () {
-                mainApp.resizeWindow();
-            });
+            $(window)
+                .bind("load resize", function () {
+                    mainApp.resizeWindow();
+                });
         }
     };
     $(document).ready(function () {
-        mainApp.metisMenu();
         mainApp.loadMenu();
-        mainApp.showRoute();
-        mainApp.openModal();
-        mainApp.creatRadioCustomEle();
         mainApp.resizeWindow();
-        $('#layout-btn')
-            .on('click', function () {
-                if ($('body').hasClass('layout-boxed')) {
-                    $('body').removeClass('layout-boxed')
-                } else {
-                    $('body').addClass('layout-boxed')
-                };
-                mainApp.resizeWindow();
-            })
     });
 }(jQuery));

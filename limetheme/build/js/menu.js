@@ -1,22 +1,14 @@
-/* ========================================================================
- * Bootstrap: metismenu.js v3.3.7
- * http://getbootstrap.com/javascript/#metismenus
- * ========================================================================
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
 + function ($) {
     'use strict';
 
     // METISMENU CLASS DEFINITION ======================
 
-   var pluginName = "metisMenu",
+   var pluginName = "sideMenu",
         defaults = {
             toggle: true
         };
 
-    function MetisMenu(element, options) {
+    function SideMenu(element, options) {
         this.element = element;
         this.settings = $.extend({}, defaults, options);
         this._defaults = defaults;
@@ -24,16 +16,11 @@
         this.init();
     }
 
-    MetisMenu.prototype.init = function () {
+    SideMenu.prototype.init = function () {
 
         var $this = $(this.element),
             $toggle = this.settings.toggle;
 
-        $this
-            .find('li')
-            .has('ul')
-            .children('a')
-            .append('<span class="fa custom-arrow-icon"></span>');
         $this
             .find('li.active')
             .has('ul')
@@ -88,10 +75,10 @@
     $.fn[pluginName] = function (options) {
         return this.each(function () {
             var $this   = $(this)
-            var data    = $this.data('bs.metisMenu')
+            var data    = $this.data('bs.sideMenu')
             var options = typeof option == 'object' && option
 
-            if (!data) $this.data('bs.metisMenu', (data = new MetisMenu(this, options)))
+            if (!data) $this.data('bs.sideMenu', (data = new SideMenu(this, options)))
         });
     };
 

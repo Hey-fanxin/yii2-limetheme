@@ -10,7 +10,6 @@ use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 use yii\helpers\Html;
-use limefamily\widgets\assets\Custom_MetisMenuAsset;
 /**
  * Class Menu
  * Theme menu widget.
@@ -21,7 +20,8 @@ class Menu extends \yii\widgets\Menu
      * @inheritdoc
      */
     public $linkTemplate = '<a data-route="{label}" href="{url}">{icon} {label}</a>';
-    public $submenuTemplate = "\n<ul class='nav collapse' {show}>\n{items}\n</ul>\n";
+    //public $submenuTemplate = "\n<ul class='nav collapse' {show}>\n{items}\n</ul>\n";
+    public $submenuTemplate = "\n<ul class='nav'>\n{items}\n</ul>\n";
     public $activateParents = true;
     /**
      * @inheritdoc
@@ -73,7 +73,6 @@ class Menu extends \yii\widgets\Menu
      */
     protected function renderItems($items)
     {
-        Custom_MetisMenuAsset::register($this->getView());
         $this->registerAssets();
         $n = count($items);
         $lines = [];
@@ -100,7 +99,7 @@ class Menu extends \yii\widgets\Menu
             $menu = $this->renderItem($item);
             if (!empty($item['items'])) {
                 $menu .= strtr($this->submenuTemplate, [
-                    '{show}' => $item['active'] ? "style='display: block'" : '',
+                    //'{show}' => $item['active'] ? "style='display: block'" : '',
                     '{items}' => $this->renderItems($item['items']),
                 ]);
             }
@@ -196,6 +195,6 @@ class Menu extends \yii\widgets\Menu
         $id = empty($options['id']) ? $this->options['id'] : $options['id'];
         $options = empty($options['evetOptions']) ? '' : Json::htmlEncode($options['evetOptions']);
         //$options['fn'] = 'function(obj) {console.log(obj)}';
-        $view->registerJs("jQuery('#{$id}').metisMenu({$options})");
+        $view->registerJs("jQuery('#{$id}').sideMenu({$options})");
     }
 }
