@@ -10,6 +10,6 @@ class LimeFamilyAsset extends AssetBundle
         'css/limefamily.min.css',
     ];
     public $js = [
-        'js/limefamily-php.min.js'
+        'js/limefamily.min.js'
     ];
 }

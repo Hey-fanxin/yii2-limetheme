@@ -37,20 +37,13 @@
             //.has('ul')
             .children('a')
             .on('click', function (e) {
-                e.preventDefault();
+                //e.preventDefault();
                 $(this)
                     .parent('li')
                     .toggleClass('active')
                     .has('ul')
                     .children('ul')
                     .collapse('toggle');
-                // $(this)
-                //     .has('span')
-                //     .children('span')
-                //     .children('img')
-                //     .attr('src',$sl_src);
-                // var src = $(this).has('i').children('i').children('img').attr('src');
-                //console.log(src)
                 if ($toggle) {
                     $(this)
                         .parent('li')
@@ -59,14 +52,6 @@
                         .has('ul.in')
                         .children('ul.in')
                         .collapse('hide');
-                    // $(this)
-                    //     .parent('li')
-                    //     .siblings()
-                    //     .children('a')
-                    //     .has('span')
-                    //     .children('span')
-                    //     .children('img')
-                    //     .attr('src',$xl_src);
                 }
             });
         
