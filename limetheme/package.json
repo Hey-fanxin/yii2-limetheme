@@ -1,7 +1,7 @@
 {
   "name": "limefamily",
   "description": "This is a partial the theme files and some functional components of quietly elegant, if you want to modify, please modify the source code provided in the package to the editor",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "keywords": [
     "css",
     "less",
@@ -10,15 +10,15 @@
     "front-end",
     "framework",
     "limefamily",
+    "template",
     "theme",
     "web"
   ],
   "homepage": "http://xxxxxxxx.com",
-  "author": "limefamily--bjp",
+  "author": "limefamily[bjp]",
   "scripts": {
     "dist": "grunt dist",
-    "update-shrinkwrap": "npm shrinkwrap --dev && shx mv ./npm-shrinkwrap.json ./grunt/npm-shrinkwrap.json",
-    "test": "grunt test"
+    "update-shrinkwrap": "npm shrinkwrap --dev && shx mv ./npm-shrinkwrap.json ./grunt/npm-shrinkwrap.json"
   },
   "style": "dist/css/limefamily.css",
   "less": "./build/less/limefamily.less",

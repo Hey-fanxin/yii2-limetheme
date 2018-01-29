@@ -83,6 +83,7 @@ module.exports = function (grunt) {
     less: {
       compileCore: {
         options: {
+          banner: '<%= banner %>',
           strictMath: true,
           sourceMap: true,
           outputSourceFiles: true,
@@ -94,6 +95,7 @@ module.exports = function (grunt) {
       },
       compileTheme: {
         options: {
+          banner: '<%= banner %>',
           strictMath: true,
           sourceMap: true,
           outputSourceFiles: true,
