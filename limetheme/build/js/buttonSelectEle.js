@@ -45,9 +45,9 @@
 
     $.fn[pluginName] = function (options) {
         return this.each(function () {
-
+            var option = typeof options == 'object' && options
             if (!$.data(this, "plugin_" + pluginName)) {
-                $.data(this, "plugin_" + pluginName, new Plugin(this, options));
+                $.data(this, "plugin_" + pluginName, new Plugin(this, option));
             }
         });
     };

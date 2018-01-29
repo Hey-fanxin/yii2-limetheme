@@ -2397,6 +2397,7 @@ if (typeof jQuery === 'undefined') {
     SideMenu.prototype.init = function () {
 
         var $this = $(this.element),
+            $options = this.settings,
             $toggle = this.settings.toggle;
 
         $this
@@ -2431,6 +2432,9 @@ if (typeof jQuery === 'undefined') {
                         .children('ul.in')
                         .collapse('hide');
                 }
+                if(typeof $options['fn'] == 'function') {
+                    $options['fn']($(this))
+                }
             });
         
     };
@@ -2439,9 +2443,9 @@ if (typeof jQuery === 'undefined') {
         return this.each(function () {
             var $this   = $(this)
             var data    = $this.data('bs.sideMenu')
-            var options = typeof option == 'object' && option
+            var option = typeof options == 'object' && options
 
-            if (!data) $this.data('bs.sideMenu', (data = new SideMenu(this, options)))
+            if (!data) $this.data('bs.sideMenu', (data = new SideMenu(this, option)))
         });
     };
 
@@ -2612,9 +2616,9 @@ if (typeof jQuery === 'undefined') {
 
     $.fn[pluginName] = function (options) {
         return this.each(function () {
-
+            var option = typeof options == 'object' && options
             if (!$.data(this, "plugin_" + pluginName)) {
-                $.data(this, "plugin_" + pluginName, new Plugin(this, options));
+                $.data(this, "plugin_" + pluginName, new Plugin(this, option));
             }
         });
     };

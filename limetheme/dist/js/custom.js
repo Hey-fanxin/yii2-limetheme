@@ -15,8 +15,12 @@
             });
         },
         sideMenu: function () {
-            $('#main-menu').sideMenu();
-            $('#select').dropDownMenuSelect();
+            $('#main-menu').sideMenu({fn:function(t){
+                console.log(t.html())
+            }});
+            $('#select').dropDownMenuSelect({fn:function(t){
+                console.log(t.html())
+            }});
             $('#select2').dropDownMenuSelect();
         },
 

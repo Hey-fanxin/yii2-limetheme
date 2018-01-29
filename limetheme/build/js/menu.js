@@ -19,6 +19,7 @@
     SideMenu.prototype.init = function () {
 
         var $this = $(this.element),
+            $options = this.settings,
             $toggle = this.settings.toggle;
 
         $this
@@ -53,6 +54,9 @@
                         .children('ul.in')
                         .collapse('hide');
                 }
+                if(typeof $options['fn'] == 'function') {
+                    $options['fn']($(this))
+                }
             });
         
     };
@@ -61,9 +65,9 @@
         return this.each(function () {
             var $this   = $(this)
             var data    = $this.data('bs.sideMenu')
-            var options = typeof option == 'object' && option
+            var option = typeof options == 'object' && options
 
-            if (!data) $this.data('bs.sideMenu', (data = new SideMenu(this, options)))
+            if (!data) $this.data('bs.sideMenu', (data = new SideMenu(this, option)))
         });
     };
 
