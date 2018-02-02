@@ -56,6 +56,10 @@ class ButtonSelectEle extends  \yii\base\widget
     public $pluginName = 'dropdown';
 
     public $listCss = [];
+        
+    public $btn_cla = 'btn btn-default btn-select';
+
+    public $btn_tag = 'button';
 
     /**
      * @var string the button label
@@ -131,7 +135,7 @@ class ButtonSelectEle extends  \yii\base\widget
         $options = $this->options;
         //Html::addCssClass($this->options, ['widget' => 'btn']);
         $icon = self::_ICON;
-        Html::addCssClass($options, ['toggle' => 'dropdown-toggle', 'select' => 'btn btn-default btn-select']);
+        Html::addCssClass($options, ['toggle' => 'dropdown-toggle', $this->btn_cla]);
         $options['data-toggle'] = 'dropdown';
         $options['aria-haspopup'] = "true";
         if(isset($this->attribute)){
@@ -142,7 +146,7 @@ class ButtonSelectEle extends  \yii\base\widget
         }
 
         $con = Html::tag('span', $this->label).$icon;
-        return Html::tag('button', $con, $options);
+        return Html::tag($this->btn_tag, $con, $options);
     }
 
     /**
