@@ -8,12 +8,8 @@
 
 namespace limefamily\widgets;
 
-class CheckBoxListEle extends  RadioListEle
+class CheckBoxList extends  \limefamily\widgets\base\RadioAndCheckBase
 {
-    /**
-     * @var ActiveForm the ActiveForm object which you can pass for seamless usage with ActiveForm. This property is
-     * especially useful for client validation of [[attribute2]] for [[TYPE_RANGE]] validation.
-     */
 
     public $type = 'checkbox';
     /**

@@ -1,19 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: bianjunping
- * Date: 2018/1/12
- * Time: 下午3:52
- */
 
-namespace limefamily\widgets;
+namespace limefamily\widgets\base;
 
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\base\InvalidConfigException;
 use yii\widgets\ActiveForm;
 
-class RadioListEle extends  \yii\base\widget
+/* radio 和 checked 组件的基类 - */
+
+class RadioAndCheckBase extends  \yii\base\widget
 {
 
     const _ICON = '<i class="fa-li fa fa-lg" aria-hidden="true"></i>';
@@ -27,7 +23,7 @@ class RadioListEle extends  \yii\base\widget
 
     public $attribute;
 
-    public $type = 'radio';
+    public $type = 'text';
 
     public $items = [];
     /**
@@ -35,16 +31,16 @@ class RadioListEle extends  \yii\base\widget
      */
     public $options = [];
 
-    public $labelOptions = ['class' => 'radio-custom'];
+    public $labelOptions = [];
 
     public function run()
     {
         parent::run();
 
-        return $this->renderRadioListBox();
+        return $this->renderListBox();
     }
 
-    protected function renderRadioListBox() {
+    protected function renderListBox() {
         $this->validateConfig();
         $options = $this->options;
         $name = isset($options['name']) ? $options['name'] : Html::getInputName($this->model, $this->attribute);
@@ -55,10 +51,10 @@ class RadioListEle extends  \yii\base\widget
         if (!array_key_exists('id', $options)) {
             $options['id'] = Html::getInputId($this->model, $this->attribute);
         }
-        return $this->renderRadioList($name, $selection, $this->items, $options);
+        return $this->renderList($name, $selection, $this->items, $options);
     }
 
-    protected function renderRadioList($name, $selection, $items, $options) {
+    protected function renderList($name, $selection, $items, $options) {
 
         if(!isset($items)) return '';
         $type = $this->type;
@@ -73,7 +69,7 @@ class RadioListEle extends  \yii\base\widget
             $checked = $selection !== null &&
                 (!ArrayHelper::isTraversable($selection) && !strcmp($value, $selection)
                     || ArrayHelper::isTraversable($selection) && ArrayHelper::isIn($value, $selection));
-            $lines[] = $this->renderRadioItems($type, $name, $checked, [
+            $lines[] = $this->renderItems($type, $name, $checked, [
                 'value' => $value,
                 'label' => Html::encode($label),
             ]);
@@ -88,7 +84,7 @@ class RadioListEle extends  \yii\base\widget
 
     }
 
-    protected  function renderRadioItems ($type, $name, $checked = false, $options = []) {
+    protected  function renderItems ($type, $name, $checked = false, $options = []) {
 
         $_icon = self::_ICON;
         $options['checked'] = (bool) $checked;
@@ -145,5 +141,4 @@ class RadioListEle extends  \yii\base\widget
             static::err("You must set the 'model' and 'attribute' properties when the 'form' property is set.");
         }
     }
-
 }

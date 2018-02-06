@@ -17,7 +17,7 @@ use yii\bootstrap\ButtonDropdown;
 use yii\bootstrap\Button;
 //use limefamily\widgets\assets\ButtonSelectElePluginAsset;
 
-class ButtonSelectEle extends  \yii\base\widget
+class ButtonSelect extends  \yii\base\widget
 {
     use \yii\bootstrap\BootstrapWidgetTrait;
 

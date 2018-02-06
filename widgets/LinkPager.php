@@ -2,14 +2,13 @@
 
 namespace limefamily\widgets;
 
-use yii\widgets\LinkPager;
 use yii\helpers\Html;
 use yii\data\Pagination;
 
 /**
  * 自定义分页小部件
  */
-class LinkPagerEle extends LinkPager
+class LinkPager extends \yii\widgets\LinkPager
 {
     //除去首末页连续显示的按钮数目
     public $maxButtonCount = 5;
