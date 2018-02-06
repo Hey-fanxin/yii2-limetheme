@@ -50,7 +50,7 @@
 
                     var $btn = getBtn($menu)
                         $btn.siblings('input').val($(this).attr('data-dropdown-n'))
-                        $btn.html($(this).html())
+                        $btn.children('span').html($(this).html())
                     if(typeof $options['fn'] == 'function') {
                         $options['fn']($(this))
                     }

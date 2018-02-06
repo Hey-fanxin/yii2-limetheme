@@ -150,8 +150,9 @@ class ButtonSelectEle extends  \yii\base\widget
             $hidden = isset($options['unselect']) ? Html::hiddenInput($name, $options['unselect']) : '';
         }
 
+        $con = Html::tag('span',$this->label,[]);
         return Html::tag('div',
-            $hidden . Html::tag($this->btn_tag, $this->label, $options) . $icon,
+            $hidden.Html::tag($this->btn_tag, $con.$icon, $options),
             ['class' => 'btn-select-box']);
     }
 
