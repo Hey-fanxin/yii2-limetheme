@@ -12,4 +12,7 @@ class LimeFamilyAsset extends AssetBundle
     public $js = [
         'js/limefamily.min.js'
     ];
+    public $depends = [
+        'yii\web\JqueryAsset',
+    ];
 }

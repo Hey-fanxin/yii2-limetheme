@@ -8796,7 +8796,6 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   border-bottom-width: 1px;
 }
 .table-bordered .dropdown-toggle {
-  display: block;
   color: #333;
   text-decoration: none;
 }

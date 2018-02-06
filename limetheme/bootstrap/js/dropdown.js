@@ -29,9 +29,13 @@
       selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
     }
 
-    var $parent = selector && $(selector)
-
-    return $parent && $parent.length ? $parent : $this.parent()
+    var $parent = selector && $(selector);
+        $parent = $parent && $parent.length ? $parent : $this.parent()
+    if($parent.has('ul').length){
+      return $parent
+    }else{
+      return $parent.parent()
+    }
   }
 
   function clearMenus(e) {

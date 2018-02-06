@@ -138,15 +138,21 @@ class ButtonSelectEle extends  \yii\base\widget
         Html::addCssClass($options, ['toggle' => 'dropdown-toggle', $this->btn_cla]);
         $options['data-toggle'] = 'dropdown';
         $options['aria-haspopup'] = "true";
+        if (!array_key_exists('unselect', $options)) {
+            $options['unselect'] = '';
+        }
         if(isset($this->attribute)){
             $name = isset($options['name']) ? $options['name'] : Html::getInputName($this->model, $this->attribute);
             $value = isset($options['value']) ? $options['value'] : Html::getAttributeValue($this->model, $this->attribute);
             $options['name'] = $name;
             $options['value'] = $value;
+
+            $hidden = isset($options['unselect']) ? Html::hiddenInput($name, $options['unselect']) : '';
         }
 
-        $con = Html::tag('span', $this->label).$icon;
-        return Html::tag($this->btn_tag, $con, $options);
+        return Html::tag('div',
+            $hidden . Html::tag($this->btn_tag, $this->label, $options) . $icon,
+            ['class' => 'btn-select-box']);
     }
 
     /**

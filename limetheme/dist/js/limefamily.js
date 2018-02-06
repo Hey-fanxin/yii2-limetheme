@@ -779,9 +779,13 @@ if (typeof jQuery === 'undefined') {
       selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
     }
 
-    var $parent = selector && $(selector)
-
-    return $parent && $parent.length ? $parent : $this.parent()
+    var $parent = selector && $(selector);
+        $parent = $parent && $parent.length ? $parent : $this.parent()
+    if($parent.has('ul').length){
+      return $parent
+    }else{
+      return $parent.parent()
+    }
   }
 
   function clearMenus(e) {
@@ -2592,21 +2596,36 @@ if (typeof jQuery === 'undefined') {
 
     }
 
+    function getDropMenu($this){
+        var $parent = $this.parent()
+
+        if($parent.has('ul.dropdown-menu').length){
+            return $parent.children('ul')
+        }else{
+            $parent  = $parent.parent()
+            return $parent && $parent.length ? $parent.children('ul') : $parent.parent().children('ul')
+        }
+
+    }
+    function getBtn($ele){
+        var $btn = $ele.siblings('.btn-select')
+        return $btn && $btn.lengtn ? $btn : $ele.siblings().children('.btn-select')
+    }
+    
     Plugin.prototype = {
         init: function(){
-            var $this = $(this.element).parent('div').has('ul.dropdown-menu').children('ul'),
+            var $menu = getDropMenu($(this.element)),
                 $checked = this.options.checkbox,
                 $options = this.options;
-            $this
+            $menu
                 .find('li')
                 .children('a')
                 .on('click', function (e) {
                     e.preventDefault();
 
-                    var $parent_sib = $(this).parent('li').parent('ul').siblings();
-                    $parent_sib
-                        .children('span')
-                        .html($(this).html());
+                    var $btn = getBtn($menu)
+                        $btn.siblings('input').val($(this).attr('data-dropdown-n'))
+                        $btn.html($(this).html())
                     if(typeof $options['fn'] == 'function') {
                         $options['fn']($(this))
                     }
