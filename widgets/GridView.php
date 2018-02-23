@@ -249,10 +249,18 @@ class GridView extends BaseListView
      *      'name'          => '' __默认是 'limeSearch',
      *      'value'         => '' __默认是 '',
      *      'placeholder'   => '' __默认是 '搜索条件',
+     *      'right'         => '' __默认是 ''              右侧内容区域
      *
      *      'searchInputOptions' => ['class' => 'form-control'],
      *      'searchInputOptions' => ['class' => 'input-group-btn']
      * ]
+     *  例子：
+     * 'search' => [
+     *      'action' => ['index'],
+     *      'method' => 'get',
+     *      'placeholder' => '姓名/手机号',
+     *      'right'  => Html::tag('div',Html::a('新增', ['create'], ['class' => 'btn btn-primary btn-sm btn-block-sm pull-right']),['class' => 'form-group'])
+     *  ]
      *
      */
     public $search = [];

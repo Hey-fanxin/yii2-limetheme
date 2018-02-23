@@ -15,7 +15,6 @@ use yii\base\InvalidConfigException;
 use yii\widgets\ActiveForm;
 use yii\bootstrap\ButtonDropdown;
 use yii\bootstrap\Button;
-//use limefamily\widgets\assets\ButtonSelectElePluginAsset;
 
 class ButtonSelect extends  \yii\base\widget
 {
@@ -80,7 +79,6 @@ class ButtonSelect extends  \yii\base\widget
     public function run()
     {
         parent::run();
-        //ButtonSelectElePluginAsset::register($this->getView());
         return $this->parseMarkup();
     }
 
@@ -141,16 +139,15 @@ class ButtonSelect extends  \yii\base\widget
         if (!array_key_exists('unselect', $options)) {
             $options['unselect'] = '';
         }
+        $val = null;
         if(isset($this->attribute)){
             $name = isset($options['name']) ? $options['name'] : Html::getInputName($this->model, $this->attribute);
             $value = isset($options['value']) ? $options['value'] : Html::getAttributeValue($this->model, $this->attribute);
-            $options['name'] = $name;
-            $options['value'] = $value;
-
-            $hidden = isset($options['unselect']) ? Html::hiddenInput($name, $options['unselect']) : '';
+            $val = $value;
+            $hidden = isset($options['unselect']) ? Html::hiddenInput($name, $value) : Html::hiddenInput($name,$options['unselect']);
         }
 
-        $con = Html::tag('span',$this->label,[]);
+        $con = $val === NULL ? Html::tag('span',$this->label,[]) : Html::tag('span',$this->items[$val],[]);
         return Html::tag('div',
             $hidden.Html::tag($this->btn_tag, $con.$icon, $options),
             ['class' => 'btn-select-box']);

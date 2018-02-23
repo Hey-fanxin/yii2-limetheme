@@ -46,7 +46,6 @@
         this.options = $.extend({}, defaults, options);
         this._name = pluginName;
         this.init();
-
     }
 
     Plugin.prototype = {
@@ -60,19 +59,6 @@
 
             initEventHandler($($this), 'filter', filterEvents, $options.filterSelector, function (event) {
 
-                if (event.type === 'keydown') {
-                    if (event.keyCode !== 13) {
-                        return; // only react to enter key
-                    } else {
-                        enterPressed = true;
-                    }
-                } else {
-                    // prevent processing for both keydown and change events
-                    if (enterPressed) {
-                        enterPressed = false;
-                        return;
-                    }
-                }
                 _this.appFilter($this);
 
                 return false;
@@ -80,54 +66,44 @@
         },
         appFilter: function () {
             var $this = $(this.element),
-                $options = this.options;
+                $options = this.options,
+                data = {};
 
-            var data = {}
-
-            $.each($($options.filterSelector).serializeArray(), function () {
-                if (!(this.name in data)) {
-                    data[this.name] = [];
-                }
-                data[this.name].push(this.value);
-            });
-
-            var namesInFilter = Object.keys(data);
-            console.log(namesInFilter)
             $.each(yii.getQueryParams($options.filterUrl), function (name, value) {
-                if (namesInFilter.indexOf(name) === -1 && namesInFilter.indexOf(name.replace(/\[\d*\]$/, '')) === -1) {
-                    if (!$.isArray(value)) {
-                        value = [value];
-                    }
-                    if (!(name in data)) {
-                        data[name] = value;
-                    } else {
-                        $
-                            .each(value, function (i, val) {
-                                if ($.inArray(val, data[name])) {
-                                    data[name].push(val);
-                                }
-                            });
-                    }
-                }
-            });
-            console.log(yii.getQueryParams($options.filterUrl))
-            console.log(data);
 
-            var pos = $options
-                .filterUrl
-                .indexOf('?');
-            var url = pos < 0
-                ? $options.filterUrl
-                : $options
-                    .filterUrl
-                    .substring(0, pos);
-            var hashPos = $options
-                .filterUrl
-                .indexOf('#');
+                if (!$.isArray(value)) {
+                    value = [value];
+                }
+                if (!(name in data)) {
+                    data[name] = value;
+                } else {
+                    $.each(value, function (i, val) {
+                        if ($.inArray(val, data[name])) {
+                            data[name].push(val);
+                        }
+                    });
+                }
+
+            });
+            var namesInFilter = Object.keys(data);
+            $.each($($options.filterSelector).serializeArray(), function (index, o) {
+                if (namesInFilter.indexOf(o.name) === -1 && namesInFilter.indexOf(o.name.replace(/\[\d*\]$/, '')) === -1) {
+                    if (!(o.name in data)) {
+                        data[o.name] = [];
+                    }
+                    data[o.name].push(o.value);
+                } else {
+                    data[o.name] = [];
+                    data[o.name].push(o.value);
+                }
+
+            });
+
+            var pos = $options.filterUrl.indexOf('?');
+            var url = pos < 0 ? $options.filterUrl : $options.filterUrl.substring(0, pos);
+            var hashPos = $options.filterUrl.indexOf('#');
             if (pos >= 0 && hashPos >= 0) {
-                url += $options
-                    .filterUrl
-                    .substring(hashPos);
+                url += $options.filterUrl.substring(hashPos);
             }
 
             $($this)
@@ -142,12 +118,9 @@
             }).appendTo($($this));
 
             $.each(data, function (name, values) {
-                //if(name !== 'r')
-                $
-                    .each(values, function (index, value) {
-                        console.log(name)
-                        $form.append($('<input/>').attr({type: 'hidden', name: name, value: value}));
-                    });
+                $.each(values, function (index, value) {
+                    $form.append($('<input/>').attr({type: 'hidden', name: name, value: value}));
+                });
             });
 
             var event = $.Event(gridEvents.beforeFilter);
@@ -156,7 +129,7 @@
                 return;
             }
 
-            //$form.submit();
+            $form.submit();
             $($this).trigger(gridEvents.afterFilter);
         }
 
@@ -167,8 +140,7 @@
         var prevHandler = gridEventHandlers[id];
         if (prevHandler !== undefined && prevHandler[type] !== undefined) {
             var data = prevHandler[type];
-            console.log(data)
-            //$(document).off(data.event, data.selector);
+            $(document).off(data.event, data.selector);
         }
         if (prevHandler === undefined) {
             gridEventHandlers[id] = {};

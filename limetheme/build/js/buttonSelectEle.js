@@ -5,8 +5,6 @@
 + (function($) {
     'use strict';
 
-    //var menu   = '.dropdown-menu'
-
     var pluginName = "dropDownMenuSelect",
         defaults = {
             checked: ''
@@ -34,7 +32,7 @@
     }
     function getBtn($ele){
         var $btn = $ele.siblings('.btn-select')
-        return $btn && $btn.lengtn ? $btn : $ele.siblings().children('.btn-select')
+        return $btn && $btn.length ? $btn : $ele.siblings().children('.btn-select')
     }
     
     Plugin.prototype = {
@@ -48,9 +46,10 @@
                 .on('click', function (e) {
                     e.preventDefault();
 
-                    var $btn = getBtn($menu)
-                        $btn.siblings('input').val($(this).attr('data-dropdown-n'))
-                        $btn.children('span').html($(this).html())
+                    var $btn = getBtn($menu);
+                        $btn.siblings('input').val($(this).attr('data-dropdown-n'));
+                        $btn.children('span').html($(this).html());
+
                     if(typeof $options['fn'] == 'function') {
                         $options['fn']($(this))
                     }
