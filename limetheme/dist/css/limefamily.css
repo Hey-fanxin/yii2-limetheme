@@ -7846,7 +7846,7 @@ fieldset[disabled] .form-control {
 }
 .navbar {
   position: relative;
-  min-height: 62px;
+  height: 62px;
   margin: 0;
   background: #f4fdf5;
   border: none;
@@ -7854,7 +7854,7 @@ fieldset[disabled] .form-control {
 @media (min-width: 1336px) {
   .navbar {
     margin: 0;
-    background: #fff;
+    background: #303030;
     border: none;
     border-radius: 0;
   }
@@ -8204,15 +8204,46 @@ fieldset[disabled] .form-control {
   position: relative;
   display: block;
   float: none !important;
-  min-height: 62px;
+  min-height: 52px;
+  margin-right: 0;
   margin-left: 191px;
-  line-height: 62px;
+  line-height: 52px;
 }
 .navbar-right > p {
   margin: 0;
 }
 .navbar-right > p > .active {
   color: #7fbb38;
+}
+.navbar-right > h4 {
+  height: 52px;
+  padding: 0;
+  margin: 0;
+  line-height: 52px;
+  color: #fff;
+}
+.navbar-right > .avatar-box {
+  position: absolute;
+  top: -5px;
+  right: 30px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  padding: 3px 0;
+  color: #bebebe;
+
+  orientation: horizontal;
+}
+.navbar-right > .avatar-box > .name {
+  padding: 2px 5px;
+}
+.navbar-right > .avatar-box > .out {
+  padding: 2px 20px;
+}
+.navbar-right > .avatar-box > .out:hover {
+  color: #fff;
+  cursor: pointer;
 }
 .navbar-default {
   background-color: #f8f8f8;
@@ -8412,6 +8443,17 @@ fieldset[disabled] .navbar-inverse .btn-link:hover,
 fieldset[disabled] .navbar-inverse .btn-link:focus {
   color: #444;
 }
+.navbar-route {
+  position: relative;
+  height: 35px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-left: 21px;
+  margin-left: 171px;
+  line-height: 35px;
+  background: #fff;
+}
 .navmenu {
   position: absolute;
   width: 50px;
@@ -8450,7 +8492,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 .navmenu-side > ul > li > a {
   display: block;
-  padding: 0 15px 0 40px;
+  padding: 0 15px 0 32px;
   line-height: 36px;
   color: #bebebe;
   white-space: nowrap;
@@ -8663,7 +8705,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
      -moz-box-sizing: border-box;
           box-sizing: border-box;
   padding: 27px 30px;
-  margin-top: 21px;
+  margin-top: 45px;
   margin-left: 191px;
   overflow-y: auto;
   background: #fff;

@@ -2580,8 +2580,6 @@ if (typeof jQuery === 'undefined') {
 + (function($) {
     'use strict';
 
-    //var menu   = '.dropdown-menu'
-
     var pluginName = "dropDownMenuSelect",
         defaults = {
             checked: ''
@@ -2609,7 +2607,7 @@ if (typeof jQuery === 'undefined') {
     }
     function getBtn($ele){
         var $btn = $ele.siblings('.btn-select')
-        return $btn && $btn.lengtn ? $btn : $ele.siblings().children('.btn-select')
+        return $btn && $btn.length ? $btn : $ele.siblings().children('.btn-select')
     }
     
     Plugin.prototype = {
@@ -2623,9 +2621,10 @@ if (typeof jQuery === 'undefined') {
                 .on('click', function (e) {
                     e.preventDefault();
 
-                    var $btn = getBtn($menu)
-                        $btn.siblings('input').val($(this).attr('data-dropdown-n'))
-                        $btn.children('span').html($(this).html())
+                    var $btn = getBtn($menu);
+                        $btn.siblings('input').val($(this).attr('data-dropdown-n'));
+                        $btn.children('span').html($(this).html());
+
                     if(typeof $options['fn'] == 'function') {
                         $options['fn']($(this))
                     }
@@ -2656,7 +2655,7 @@ if (typeof jQuery === 'undefined') {
                 'height': parseInt($(window).height()) - 62
             });
             $('.wrapper-page-container').css({
-                'height': parseInt($(window).height()) - 83
+                'height': parseInt($(window).height()) - 107
             });
         },
         loadMenu: function () {

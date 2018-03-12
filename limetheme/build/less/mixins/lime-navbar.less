@@ -10,7 +10,7 @@
 
 .navbar {
   position: relative;
-  min-height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
+  height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
   background: #f4fdf5;
   border: none;
   margin: 0;
@@ -18,7 +18,7 @@
   &:extend(.clearfix all);
 
   @media (min-width: @container-max-large-desktop) {
-    background: #fff;
+    background: #303030;
     border-radius: 0;
     border: none;
     margin:0;
@@ -407,9 +407,10 @@
 // Declared after the navbar components to ensure more specificity on the margins.
 .navbar-left  { .pull-left(); }
 .navbar-right{
-  min-height: @navbar-height;
-  line-height: @navbar-height;
-  margin-left: 191px;
+  min-height: (@navbar-height -  10);
+  line-height: (@navbar-height - 10);
+  margin-left: (@navmenu-width + 20);
+  margin-right: 0;
   display: block;
   float: none !important;
   position: relative;
@@ -417,6 +418,33 @@
     margin:0;
     >.active{
       color: @link-color;
+    }
+  }
+  >h4{
+    margin: 0;
+    padding: 0;
+    color:#fff;
+    height:(@navbar-height -  10);
+    line-height:(@navbar-height -  10);
+  }
+  >.avatar-box{
+    position: absolute;
+    right:30px;
+    top:-5px;
+    display: flex;
+    orientation:horizontal;
+    color: #BEBEBE;
+    padding:3px 0;
+
+    >.name{
+      padding: 2px 5px;
+    }
+    >.out{
+      padding:2px 20px;
+      &:hover{
+        color:#fff;
+        cursor: pointer;
+      }
     }
   }
 }
@@ -690,4 +718,13 @@
       }
     }
   }
+}
+.navbar-route{
+  position: relative;
+  box-sizing: border-box;
+  margin-left: @navmenu-width;
+  height: 35px;
+  line-height: 35px;
+  background: #ffffff;
+  padding-left:21px;
 }

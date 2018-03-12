@@ -12,7 +12,7 @@
                 'height': parseInt($(window).height()) - 62
             });
             $('.wrapper-page-container').css({
-                'height': parseInt($(window).height()) - 83
+                'height': parseInt($(window).height()) - 107
             });
         },
         loadMenu: function () {
