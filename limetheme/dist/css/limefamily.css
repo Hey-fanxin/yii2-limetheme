@@ -8731,8 +8731,6 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   overflow: auto !important;
 }
 .layout-boxed .navbar .navbar-right {
-  float: right !important;
-  width: 1145px;
   margin-left: 0;
 }
 @media (max-width: 1336px) {
