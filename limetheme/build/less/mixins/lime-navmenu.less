@@ -1,7 +1,7 @@
 .navmenu{
     position: absolute;
     background: @navmenu-b-color;
-    width: 50px;
+    width: 0px;
     height: @navmenu-height;
     transition: transform .3s ease-in-out,width .3s ease-in-out;
 
@@ -13,6 +13,7 @@
         display: block;
     }
 }
+.sidebar-open .navmenu,
 .sidebar-collapse .navmenu {
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);

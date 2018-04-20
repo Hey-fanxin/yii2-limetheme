@@ -11,7 +11,7 @@
 .navbar {
   position: relative;
   height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
-  background: #f4fdf5;
+  background: #303030;
   border: none;
   margin: 0;
   // Prevent floats from breaking the navbar
@@ -35,9 +35,8 @@
 .navbar-header {
   position: relative;
   background: @navmenu-b-color;
-
+  float: left;
   @media (min-width: @grid-float-breakpoint) {
-    float: left;
     width: @navmenu-width;
     height: @navbar-height;
   }
@@ -46,9 +45,11 @@
 
   > a {
     display: block;
-    width: 30px;
-    height: 30px;
+    width: 70px;
     margin:15px auto;
+    >img{
+      width:100%;
+    }
   }
   > button {
     border-color: @brand-primary;
@@ -67,6 +68,7 @@
     }
   }
 }
+
 // Navbar collapse (body)
 //
 // Group your navbar content into this for easy collapsing and expanding across
@@ -226,7 +228,7 @@
   top: 0;
   margin-right: @navbar-padding-horizontal;
   padding: 9px 10px;
-  .navbar-vertical-align(34px);
+  .navbar-vertical-align(42px);
   background-color: transparent;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
@@ -426,6 +428,9 @@
     color:#fff;
     height:(@navbar-height -  10);
     line-height:(@navbar-height -  10);
+    @media (max-width: @screen-phone){
+      display: none;
+    }
   }
   >.avatar-box{
     position: absolute;
@@ -435,12 +440,13 @@
     orientation:horizontal;
     color: #BEBEBE;
     padding:3px 0;
-
+    transition: transform .3s ease-in-out,right .3s ease-in-out;
     >.name{
       padding: 2px 5px;
     }
     >.out{
       padding:2px 20px;
+      >a{color: #BEBEBE;}
       &:hover{
         color:#fff;
         cursor: pointer;
@@ -719,7 +725,7 @@
     }
   }
 }
-.navbar-route{
+.navbar .navbar-route{
   position: relative;
   box-sizing: border-box;
   margin-left: @navmenu-width;
@@ -727,4 +733,5 @@
   line-height: 35px;
   background: #ffffff;
   padding-left:21px;
+  transition: transform .3s ease-in-out,width .3s ease-in-out;
 }
