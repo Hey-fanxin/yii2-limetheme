@@ -1,12 +1,12 @@
 <?php
 
-namespace limefamily\widgets\base;
+namespace limefamily\widgets\baseclass;
 
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\base\InvalidConfigException;
 use yii\widgets\ActiveForm;
-
+use limefamily\widgets\assets\RadioAndCheckAsset;
 /* radio 和 checked 组件的基类 - */
 
 class RadioAndCheckBase extends  \yii\base\widget
@@ -37,6 +37,8 @@ class RadioAndCheckBase extends  \yii\base\widget
     {
         parent::run();
 
+        $view = $this->getView();
+        RadioAndCheckAsset::register($view);
         return $this->renderListBox();
     }
 

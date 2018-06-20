@@ -2,7 +2,7 @@
 
 namespace limefamily\widgets;
 
-class RadioList extends  \limefamily\widgets\base\RadioAndCheckBase
+class RadioList extends  \limefamily\widgets\baseclass\RadioAndCheckBase
 {
 
     public $type = 'radio';

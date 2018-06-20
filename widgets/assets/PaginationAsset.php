@@ -1,19 +1,17 @@
 <?php
-namespace limefamily\web;
+
+namespace limefamily\widgets\assets;
 
 use yii\web\AssetBundle;
 
-class LimeFamilyAsset extends AssetBundle
+class PaginationAsset extends AssetBundle
 {
     public $sourcePath = '@vendor/limefamily/yii2-limetheme/limetheme/dist';
     public $css = [
-        'css/limefamily.min.css',
+        'css/component/pagination.css',
     ];
-    public $js = [
-        'js/limefamily.min.js'
-    ];
+    public $js = [];
     public $depends = [
-        'yii\web\JqueryAsset',
         'yii\bootstrap\BootstrapAsset',
     ];
-}
+} 

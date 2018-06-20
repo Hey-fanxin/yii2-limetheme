@@ -15,6 +15,7 @@ use yii\base\InvalidConfigException;
 use yii\widgets\ActiveForm;
 use yii\bootstrap\ButtonDropdown;
 use yii\bootstrap\Button;
+use limefamily\widgets\assets\ButtonSelectAsset;
 
 class ButtonSelect extends  \yii\base\widget
 {
@@ -79,34 +80,11 @@ class ButtonSelect extends  \yii\base\widget
     public function run()
     {
         parent::run();
-        return $this->parseMarkup();
-    }
-
-    protected function parseMarkup()
-    {
-        switch ($this->type) {
-            case self::TYPE_COMPONENT_CUSTOM:
-                return $this->renderCustomDropDown();
-            case self:: TYPE_COMPONENT_DROPDOWN:
-                return ButtonDropdown::widget([
-                'label' => $this->label,
-                'dropdown' => [
-                    'items' =>$this->items
-                ]
-            ]);
-            case self::TYPE_COMPONENT_BOOT:
-                return $this->form->field($this->model,$this->attribute)->dropDownList($this->items[] = $this->label,$this->options);
-            default:
-                return '';
-        }
+        return $this->renderCustomDropDown();
     }
 
     protected function renderCustomDropDown()
     {
-//        if (empty($this->options['readonly'])) {
-//            $this->options['readonly'] = true;
-//        }
-        // @todo use [[options]] instead of [[containerOptions]] and introduce [[buttonOptions]] before 2.1 release
         Html::addCssClass($this->containerOptions, ['widget' => 'dropdown']);
         $options = $this->containerOptions;
         $tag = ArrayHelper::remove($options, 'tag', 'div');
@@ -131,7 +109,6 @@ class ButtonSelect extends  \yii\base\widget
     protected function renderButton()
     {
         $options = $this->options;
-        //Html::addCssClass($this->options, ['widget' => 'btn']);
         $icon = self::_ICON;
         Html::addCssClass($options, ['toggle' => 'dropdown-toggle', $this->btn_cla]);
         $options['data-toggle'] = 'dropdown';
@@ -191,38 +168,6 @@ class ButtonSelect extends  \yii\base\widget
         return Html::tag('ul', implode("\n", $lines), $options);
     }
     /**
-     * Raise an invalid configuration exception.
-     *
-     * @param string $msg the exception message
-     *
-     * @throws InvalidConfigException
-     */
-    protected static function err($msg = '')
-    {
-        throw new InvalidConfigException($msg);
-    }
-    /**
-     * Validates widget configuration.
-     *
-     * @throws InvalidConfigException
-     */
-    protected function validateConfig()
-    {
-        if ($this->type < 1 || $this->type > 2 || !is_int($this->type)) {
-            static::err("Invalid value for the property 'type'. Must be an integer between 1 and 6.");
-        }
-
-//        if (!isset($this->form)) {
-//            return;
-//        }
-//        if (!$this->form instanceof ActiveForm) {
-//            static::err("The 'form' property must be of type \\yii\\widgets\\ActiveForm");
-//        }
-        if (!$this->model) {
-            static::err("You must set the 'model' and 'attribute' properties when the 'form' property is set.");
-        }
-    }
-    /**
      * Registers the [[customSelect]] widget client assets.
      */
     public function registerAssets($name, $options = [])
@@ -231,6 +176,7 @@ class ButtonSelect extends  \yii\base\widget
         $id = empty($options['id']) ? $this->options['id'] : $options['id'];
         $options = empty($options['evetOptions']) ? '' : Json::htmlEncode($options['evetOptions']);
         //$options['fn'] = 'function(obj) {console.log(obj)}';
+        ButtonSelectAsset::register($view);
         $view->registerJs("jQuery('#{$id}').dropDownMenuSelect({$options})");
     }
     protected function registerPlugin($name)

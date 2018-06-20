@@ -10,6 +10,7 @@ use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 use yii\helpers\Html;
+use limefamily\widgets\assets\MenuAsset;
 /**
  * Class Menu
  * Theme menu widget.
@@ -21,16 +22,20 @@ class Menu extends \yii\widgets\Menu
      */
     public $linkTemplate = '<a data-route="{label}" href="{url}">{icon} {label}</a>';
     //public $submenuTemplate = "\n<ul class='nav collapse' {show}>\n{items}\n</ul>\n";
-    public $submenuTemplate = "\n<ul class='nav'>\n{items}\n</ul>\n";
+    public $submenuTemplate = "\n<nav class='navmenu'>
+                                    <div class='navmenu-side'>
+                                        <ul class='nav'>\n{items}\n</ul>
+                                    </div>
+                                </nav>\n";
     public $activateParents = true;
     /**
      * @inheritdoc
      */
-//    public function run()
-//    {
-//        parent::run();
-//
-//    }
+    public function run()
+    {
+        parent::run();
+
+    }
     protected function renderItem($item)
     {
         if(isset($item['items'])) {
@@ -195,6 +200,7 @@ class Menu extends \yii\widgets\Menu
         $id = empty($options['id']) ? $this->options['id'] : $options['id'];
         $options = empty($options['evetOptions']) ? '' : Json::htmlEncode($options['evetOptions']);
         //$options['fn'] = 'function(obj) {console.log(obj)}';
+        MenuAsset::register($view);
         $view->registerJs("jQuery('#{$id}').sideMenu({$options})");
     }
 }

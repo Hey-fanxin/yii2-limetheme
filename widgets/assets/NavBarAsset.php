@@ -1,19 +1,21 @@
 <?php
-namespace limefamily\web;
+/**
+ * Created by bianjunping on 2018/4/26.
+ * 
+*/
+namespace limefamily\widgets\assets;
 
 use yii\web\AssetBundle;
 
-class LimeFamilyAsset extends AssetBundle
+class NavBarAsset extends AssetBundle
 {
     public $sourcePath = '@vendor/limefamily/yii2-limetheme/limetheme/dist';
     public $css = [
-        'css/limefamily.min.css',
+        'css/component/navBar.css',
     ];
     public $js = [
-        'js/limefamily.min.js'
     ];
     public $depends = [
-        'yii\web\JqueryAsset',
         'yii\bootstrap\BootstrapAsset',
     ];
 }

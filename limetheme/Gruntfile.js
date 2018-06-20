@@ -45,21 +45,7 @@ module.exports = function (grunt) {
       },
       bootstrap: {
         src: [
-          'bootstrap/js/transition.js',
-          'bootstrap/js/alert.js',
-          'bootstrap/js/button.js',
-          'bootstrap/js/carousel.js',
-          'bootstrap/js/collapse.js',
-          'bootstrap/js/dropdown.js',
-          'bootstrap/js/modal.js',
-          'bootstrap/js/tooltip.js',
-          'bootstrap/js/popover.js',
-          'bootstrap/js/scrollspy.js',
-          'bootstrap/js/tab.js',
-          'bootstrap/js/affix.js',
-          'build/js/menu.js',
           'build/js/layoutBox.js',
-          'build/js/buttonSelectEle.js',
           'build/js/resizeWin.js',
         ],
         dest: 'dist/js/<%= pkg.name %>.js'
@@ -93,18 +79,35 @@ module.exports = function (grunt) {
         src: 'build/less/limefamily.less',
         dest: 'dist/css/<%= pkg.name %>.css'
       },
-      compileTheme: {
-        options: {
-          banner: '<%= banner %>',
-          strictMath: true,
-          sourceMap: true,
-          outputSourceFiles: true,
-          sourceMapURL: '<%= pkg.name %>-theme.css.map',
-          sourceMapFilename: 'dist/css/<%= pkg.name %>-theme.css.map'
-        },
-        src: 'bootstrap/less/theme.less',
-        dest: 'dist/css/<%= pkg.name %>-theme.css'
+      compileWidget: {
+        // options: {
+        //   banner: '<%= banner %>',
+        //   strictMath: true,
+        //   sourceMap: true,
+        //   outputSourceFiles: true,
+        //   sourceMapURL: '<%= pkg.name %>.css.map',
+        //   sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map'
+        // },
+        // src: ['build/less/mixins/lime-navmenu.less'],
+        // dest:['dist/css/navmenu.css']
+        expand:true,
+        cwd:'build/less/component/',
+        src:'*.less',
+        dest:'dist/css/component/',
+        ext:'.css'
       }
+      // compileTheme: {
+      //   options: {
+      //     banner: '<%= banner %>',
+      //     strictMath: true,
+      //     sourceMap: true,
+      //     outputSourceFiles: true,
+      //     sourceMapURL: '<%= pkg.name %>-theme.css.map',
+      //     sourceMapFilename: 'dist/css/<%= pkg.name %>-theme.css.map'
+      //   },
+      //   src: 'bootstrap/less/theme.less',
+      //   dest: 'dist/css/<%= pkg.name %>-theme.css'
+      // }
     },
 
     autoprefixer: {
@@ -116,22 +119,15 @@ module.exports = function (grunt) {
           map: true
         },
         src: 'dist/css/<%= pkg.name %>.css'
-      },
-      theme: {
-        options: {
-          map: true
-        },
-        src: 'dist/css/<%= pkg.name %>-theme.css'
       }
     },
 
     csslint: {
       options: {
-        csslintrc: 'bootstrap/less/.csslintrc'
+        csslintrc: 'build/less/.csslintrc'
       },
       dist: [
         'dist/css/limefamily.css',
-        'dist/css/limefamily-theme.css'
       ]
     },
 
@@ -149,15 +145,11 @@ module.exports = function (grunt) {
         src: 'dist/css/<%= pkg.name %>.css',
         dest: 'dist/css/<%= pkg.name %>.min.css'
       },
-      minifyTheme: {
-        src: 'dist/css/<%= pkg.name %>-theme.css',
-        dest: 'dist/css/<%= pkg.name %>-theme.min.css'
-      },
     },
 
     csscomb: {
       options: {
-        config: 'bootstrap/less/.csscomb.json'
+        config: 'build/less/.csscomb.json'
       },
       dist: {
         expand: true,
@@ -174,12 +166,6 @@ module.exports = function (grunt) {
         src: ['*.{eot,svg,ttf,woff,woff2,otf}'],
         dest: 'dist/fonts/'
       },
-      bootfonts:{
-        expand: true,
-        cwd: 'bootstrap/fonts/',
-        src: ['*.{eot,svg,ttf,woff,woff2,otf}'],
-        dest: 'dist/fonts/'
-      },
       images: {
         expand: true,
         cwd: 'build/images/',
@@ -191,69 +177,14 @@ module.exports = function (grunt) {
         cwd: 'build/js/',
         src:['custom.js'],
         dest: 'dist/js/'
-      }
-    },
-    connect: {
-      server: {
-        options: {
-          port: 3000,
-          base: '.'
-        }
-      }
-    },
-
-    jekyll: {
-      options: {
-        bundleExec: true,
-        config: '_config.yml',
-        incremental: false
       },
-      docs: {},
-      github: {
-        options: {
-          raw: 'github: true'
-        }
-      }
-    },
-
-    'saucelabs-qunit': {
-      all: {
-        options: {
-          build: process.env.TRAVIS_JOB_ID,
-          throttled: 10,
-          maxRetries: 3,
-          maxPollRetries: 4,
-          urls: ['http://127.0.0.1:3000/js/tests/index.html?hidepassed'],
-          browsers: grunt.file.readYAML('./grunt/sauce_browsers.yml')
-        }
-      }
-    },
-
-    exec: {
-      npmUpdate: {
-        command: 'npm update'
-      }
-    },
-
-    compress: {
-      main: {
-        options: {
-          archive: 'bootstrap-<%= pkg.version %>-dist.zip',
-          mode: 'zip',
-          level: 9,
-          pretty: true
-        },
-        files: [
-          {
-            expand: true,
-            cwd: 'dist/',
-            src: ['**'],
-            dest: 'bootstrap-<%= pkg.version %>-dist'
-          }
-        ]
+      componentJs: {
+        expand: true,
+        cwd: 'build/js/component/',
+        src:['*.js'],
+        dest: 'dist/js/component/'
       }
     }
-
   });
 
 
@@ -265,11 +196,11 @@ module.exports = function (grunt) {
   grunt.registerTask('dist-js', ['concat', 'uglify:core', 'commonjs']);
 
   // CSS distribution task.
-  grunt.registerTask('less-compile', ['less:compileCore', 'less:compileTheme']);
-  grunt.registerTask('dist-css', ['less-compile', 'autoprefixer:core', 'autoprefixer:theme', 'csscomb:dist', 'cssmin:minifyCore', 'cssmin:minifyTheme']);
-  grunt.registerTask('copy-fonts', ['copy:fonts', 'copy:bootfonts', 'copy:images',]);
+  grunt.registerTask('less-compile', ['less:compileCore', 'less:compileWidget']);
+  grunt.registerTask('dist-css', ['less-compile', 'autoprefixer:core', 'csscomb:dist', 'cssmin:minifyCore']);
+  grunt.registerTask('copy-fonts', ['copy:fonts', 'copy:images',]);
   // Full distribution task.
-  grunt.registerTask('dist', ['clean:dist', 'dist-css', 'copy-fonts', 'dist-js', 'copy:js']);
+  grunt.registerTask('dist', ['clean:dist', 'dist-css', 'copy-fonts', 'dist-js', 'copy:js', 'copy:componentJs']);
 
   // Default task.
   grunt.registerTask('default', ['clean:dist', 'copy:fonts', 'test']);

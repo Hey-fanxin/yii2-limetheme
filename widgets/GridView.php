@@ -13,7 +13,7 @@ use yii\helpers\ArrayHelper;
 use yii\i18n\Formatter;
 use yii\widgets\BaseListView;
 use yii\widgets\ActiveFormAsset;
-
+use limefamily\widgets\assets\GridViewAsset;
 use yii\grid\Column;
 use yii\grid\DataColumn;
 
@@ -382,22 +382,7 @@ class GridView extends BaseListView
             $content,
             Html::endForm()
         ]);
-
-        if ($this->enableClientScript) {
-            $this->registerClientScript();
-        }
-
         return Html::tag('div',$formEle,['id' => 'search-form-box']);
-    }
-
-    public function registerClientScript()
-    {
-//        $id = $this->searchOptions['id'];
-//        $options = Json::htmlEncode($this->getClientOptions());
-//        $attributes = Json::htmlEncode(ArrayHelper::remove($this->search, 'attributes', []));
-//        $view = $this->getView();
-//        ActiveFormAsset::register($view);
-//        $view->registerJs("jQuery('#$id').yiiActiveForm($attributes, $options);");
     }
 
     /**

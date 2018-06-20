@@ -8,7 +8,7 @@
 
 namespace limefamily\widgets;
 
-class CheckBoxList extends  \limefamily\widgets\base\RadioAndCheckBase
+class CheckBoxList extends  \limefamily\widgets\baseclass\RadioAndCheckBase
 {
 
     public $type = 'checkbox';

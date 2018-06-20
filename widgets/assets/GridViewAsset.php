@@ -6,7 +6,7 @@
  * Time: 上午11:01
  */
 
-namespace limefamily\widgets;
+namespace limefamily\widgets\assets;
 
 use yii\web\AssetBundle;
 
@@ -16,11 +16,15 @@ use yii\web\AssetBundle;
  */
 class GridViewAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/limefamily/yii2-limetheme/assets';
+    public $sourcePath = '@vendor/limefamily/yii2-limetheme/limetheme/dist';
+    public $css = [
+        'css/component/gridView.css',
+    ];
     public $js = [
-        'limeFamily.gridView.js',
+        'js/component/limeFamily.gridView.js',
     ];
     public $depends = [
-        'yii\web\YiiAsset',
+        'yii\web\JqueryAsset',
+        'yii\bootstrap\BootstrapAsset',
     ];
 }

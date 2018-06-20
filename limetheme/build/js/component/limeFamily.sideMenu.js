@@ -3,7 +3,7 @@
 
     // METISMENU CLASS DEFINITION ======================
 
-   var pluginName = "sideMenu",
+    var pluginName = "sideMenu",
         defaults = {
             toggle: true
         };
@@ -33,9 +33,8 @@
             .has('ul')
             .children('ul')
             .addClass('collapse');
-        $this
-            .find('li')
-            //.has('ul')
+        $this.find('li')
+        //.has('ul')
             .children('a')
             .on('click', function (e) {
                 //e.preventDefault();
@@ -54,20 +53,21 @@
                         .children('ul.in')
                         .collapse('hide');
                 }
-                if(typeof $options['fn'] == 'function') {
+                if (typeof $options['fn'] == 'function') {
                     $options['fn']($(this))
                 }
             });
-        
+
     };
 
     $.fn[pluginName] = function (options) {
         return this.each(function () {
-            var $this   = $(this)
-            var data    = $this.data('bs.sideMenu')
+            var $this = $(this)
+            var data = $this.data('bs.sideMenu')
             var option = typeof options == 'object' && options
 
-            if (!data) $this.data('bs.sideMenu', (data = new SideMenu(this, option)))
+            if (!data) 
+                $this.data('bs.sideMenu', (data = new SideMenu(this, option)))
         });
     };
 

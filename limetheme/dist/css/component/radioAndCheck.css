@@ -1,0 +1,69 @@
+/*
+*   Created by bianjunping on 2018/4/26.
+*   RadioAndCheck
+*/
+.radio-custom,
+.checkbox-custom {
+  font-weight: 400;
+  position: relative;
+  display: inline-block;
+  padding: 0 5px;
+  margin-right: 5px;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+.radio-custom input[type=checkbox],
+.checkbox-custom input[type=checkbox],
+.radio-custom input[type=radio],
+.checkbox-custom input[type=radio] {
+  visibility: hidden;
+}
+.radio-custom i,
+.checkbox-custom i {
+  -webkit-transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  transition: all .3s ease;
+  color: #999;
+}
+.radio-custom .fa-li,
+.checkbox-custom .fa-li {
+  width: auto;
+}
+.radio-custom .fa-lg,
+.checkbox-custom .fa-lg {
+  font-size: 1.27em;
+}
+.radio-custom .fa-li.fa-lg,
+.checkbox-custom .fa-li.fa-lg {
+  left: -0.15714em;
+}
+.radio-custom .fl,
+.checkbox-custom .fl {
+  float: left;
+}
+.radio-custom .fr,
+.checkbox-custom .fr {
+  float: right;
+}
+.radio-custom .fa-lg {
+  font-size: 1.37em;
+}
+.radio-custom i:before {
+  content: "\f1db";
+}
+.radio-custom input[type=radio]:checked + i:before {
+  content: "\f192";
+  color: #7FBB38;
+}
+.checkbox-custom .fa-li {
+  top: .27285714em;
+}
+.checkbox-custom i:before {
+  content: "\f096";
+}
+.checkbox-custom input[type=checkbox]:checked + i:before {
+  content: "\f14a";
+  color: #7FBB38;
+}

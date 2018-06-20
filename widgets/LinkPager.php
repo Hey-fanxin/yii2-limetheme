@@ -4,7 +4,7 @@ namespace limefamily\widgets;
 
 use yii\helpers\Html;
 use yii\data\Pagination;
-
+use limefamily\widgets\assets\Pagination;
 /**
  * 自定义分页小部件
  */
@@ -26,6 +26,9 @@ class LinkPager extends \yii\widgets\LinkPager
         if($this->maxButtonCount <= 1){
             $this->maxButtonCount = 5;
         }
+        $view = $this->getView();
+        Pagination::register($view);
+
         echo parent::run();
     }
     

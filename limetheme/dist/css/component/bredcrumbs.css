@@ -1,0 +1,26 @@
+/**
+ * Created by bianjunping on 2018/4/26.
+ * Breadcrumbs
+ * --------------------------------------------------
+*/
+.breadcrumb {
+  padding: 0;
+  margin-bottom: 0;
+  list-style: none;
+  background-color: transparent;
+  border-radius: 4px;
+}
+.breadcrumb > li {
+  display: inline-block;
+}
+.breadcrumb > li + li:before {
+  content: "—";
+  padding: 0 5px;
+  color: #ccc;
+}
+.breadcrumb > li > a {
+  color: #777777;
+}
+.breadcrumb > .active {
+  color: #7FBB38;
+}

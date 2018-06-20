@@ -1,0 +1,38 @@
+/**
+ * Created by bianjunping on 2018/4/27.
+ * Pagination
+ * -----------------------------------
+*/
+.pagination {
+
+  > li {
+    &:first-child {
+      > a,
+      > span {
+         border-radius: 3px;
+      }
+    }
+    &:last-child {
+      > a,
+      > span {
+        border-radius: 3px;
+      }
+    }
+  }
+  > li > a {
+    border-radius: 3px;
+    margin-left: 5px;
+  }
+  > .ellipsis {
+    > a,
+    > a:hover,
+    > span,
+    > span:hover, {
+        background: transparent;
+        border: none;
+        color: #999;
+        font-size: 18px;
+        cursor: default;
+    }
+  }
+}
