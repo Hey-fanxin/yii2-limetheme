@@ -3,6 +3,7 @@
     "description": "This is a partial the theme files and some functional components of quietly elegant, if you want to modify, please modify the source code provided in the package to the editor",
     "type": "yii2-extension",
     "keywords": ["yii2", "theme", "lime", "bootstrap"],
+    "homepage": "https://github.com/namebjp/yii2-limetheme",
     "license": "MIT",
     "authors": [
         {
@@ -11,10 +12,12 @@
         }
     ],
     "require": {
+        "yiisoft/yii2-bootstrap": "*",
+        "limefamily/statictheme": "*"
     },
     "autoload": {
         "psr-4": {
-            "limefamily\\": ""
+            "limefamily\\limetheme\\": ""
         }
     },
     "extra": {

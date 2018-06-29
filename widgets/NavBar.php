@@ -4,13 +4,12 @@
  * 
  * 
 */
-namespace limefamily\widgets;
+namespace limefamily\limetheme\widgets;
 
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
-use limefamily\widgets\assets\NavBarAsset;
 
-$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/limefamilytheme/limethemestatic/limetheme/dist');
+$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/limefamily/statictheme/dist');
 
 class NavBar extends \yii\base\widget
 {
@@ -21,6 +20,8 @@ class NavBar extends \yii\base\widget
     public $adminName = 'admin';
 
     public $out_url = '/site/logout';
+
+    public $breadCrumbUrl = ['home'];
 
     //  判断是否在登录状态中 显示登录人和退出按钮
     public $is_login = false;
@@ -89,7 +90,7 @@ class NavBar extends \yii\base\widget
         $routerOptions = ArrayHelper::remove($options, 'routerOptions', ['class' => 'navbar-route']);
         return Html::tag('div',
             Breadcrumb::widget([
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                'links' => $this->breadCrumbUrl,
             ])
         ,$routerOptions);
     }

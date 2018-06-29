@@ -1,15 +1,13 @@
 <?php
 
-namespace limefamily\widgets;
-
-use limefamily\widgets\assets\BreadcrumbAsset;
+namespace limefamily\limetheme\widget;
 
 class Breadcrumb extends \yii\widgets\Breadcrumbs {
 
     public function run()
     {
-        $ivew = $this->getView();
-        BreadcrumbAsset::register($ivew);
         parent::run();
+        $ivew = $this->getView();
+        BreadcrumbsbAsset::register($ivew);
     }
 }

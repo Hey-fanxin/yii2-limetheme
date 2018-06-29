@@ -6,7 +6,7 @@
  * Time: 上午11:01
  */
 
-namespace limefamily\widgets\assets;
+namespace limefamily\limetheme\widgets;
 
 use yii\web\AssetBundle;
 
@@ -16,7 +16,7 @@ use yii\web\AssetBundle;
  */
 class MenuAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/limefamily/yii2-limetheme/limetheme/dist';
+    public $sourcePath = '@vendor/limefamily/statictheme/dist';
     public $css = [
         'css/component/sideMenu.css',
     ];

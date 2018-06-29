@@ -5,12 +5,11 @@
  * Date: 2018/1/5
  * Time: 上午9:33
  */
-namespace limefamily\widgets;
+namespace limefamily\limetheme\widgets;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 use yii\helpers\Html;
-use limefamily\widgets\assets\MenuAsset;
 /**
  * Class Menu
  * Theme menu widget.
@@ -21,20 +20,29 @@ class Menu extends \yii\widgets\Menu
      * @inheritdoc
      */
     public $linkTemplate = '<a data-route="{label}" href="{url}">{icon} {label}</a>';
-    //public $submenuTemplate = "\n<ul class='nav collapse' {show}>\n{items}\n</ul>\n";
-    public $submenuTemplate = "\n<nav class='navmenu'>
-                                    <div class='navmenu-side'>
-                                        <ul class='nav'>\n{items}\n</ul>
-                                    </div>
-                                </nav>\n";
+    public $submenuTemplate = "\n<ul class='nav'>\n{items}\n</ul>\n";
     public $activateParents = true;
     /**
      * @inheritdoc
      */
     public function run()
     {
-        parent::run();
+        if ($this->route === null && Yii::$app->controller !== null) {
+            $this->route = Yii::$app->controller->getRoute();
+        }
+        if ($this->params === null) {
+            $this->params = Yii::$app->request->getQueryParams();
+        }
+        $items = $this->normalizeItems($this->items, $hasActiveChild);
+        if (!empty($items)) {
+            $options = $this->options;
+            $tag = ArrayHelper::remove($options, 'tag', 'ul');
 
+            $navEle  = Html::tag($tag, $this->renderItems($items), $options);
+            echo Html::tag('nav',
+                Html::tag('div', $navEle ,['class' => 'navmenu-side'])
+            ,['class' => 'navmenu']);
+        }
     }
     protected function renderItem($item)
     {

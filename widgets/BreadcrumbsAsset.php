@@ -1,6 +1,6 @@
 <?php
 
-namespace limefamily\widgets\assets;
+namespace limefamily\limetheme\widgets;
 
 use yii\web\AssetBundle;
 
@@ -8,13 +8,11 @@ use yii\web\AssetBundle;
  * This asset bundle provides the javascript files for the [[Breadcrumb]] widget.
  *
  */
-class BreadcrumbAsset extends AssetBundle 
+class BreadcrumbsAsset extends AssetBundle 
 {
-    public $sourcePath = '@vendor/limefamily/yii2-limetheme/limetheme/dist';
+    public $sourcePath = '@vendor/limefamily/statictheme/dist';
     public $css = [
-        'css/component/breadcrumb.css',
-    ];
-    public $js = [
+        'css/component/Breadcrumbs.css',
     ];
     public $depends = [
         'yii\bootstrap\BootstrapAsset',

@@ -3,13 +3,13 @@
  * Created by bianjunping on 2018/4/26.
  * 
 */
-namespace limefamily\widgets\assets;
+namespace limefamily\limetheme\widgets;
 
 use yii\web\AssetBundle;
 
 class NavBarAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/limefamily/yii2-limetheme/limetheme/dist';
+    public $sourcePath = '@vendor/limefamily/statictheme/dist';
     public $css = [
         'css/component/navBar.css',
     ];

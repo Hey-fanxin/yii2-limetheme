@@ -1,11 +1,11 @@
 <?php
-namespace limefamily\web;
+namespace limefamily\limetheme\web;
 
 use yii\web\AssetBundle;
 
 class LimeFamilyAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/limefamily/yii2-limetheme/limetheme/dist';
+    public $sourcePath = '@vendor/limefamily/statictheme/dist';
     public $css = [
         'css/limefamily.min.css',
     ];
