@@ -16,7 +16,7 @@ use yii\web\AssetBundle;
  */
 class MenuAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/limefamily/statictheme/dist';
+    public $sourcePath = '@vendor/limefamily/static-theme/dist';
     public $css = [
         'css/component/sideMenu.css',
     ];

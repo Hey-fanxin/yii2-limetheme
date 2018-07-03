@@ -1,6 +1,6 @@
 <?php
 
-namespace limefamily\limetheme\widget;
+namespace limefamily\limetheme\widgets;
 
 class Breadcrumb extends \yii\widgets\Breadcrumbs {
 
@@ -8,6 +8,6 @@ class Breadcrumb extends \yii\widgets\Breadcrumbs {
     {
         parent::run();
         $ivew = $this->getView();
-        BreadcrumbsbAsset::register($ivew);
+        BreadcrumbsAsset::register($ivew);
     }
 }

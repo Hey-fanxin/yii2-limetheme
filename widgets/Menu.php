@@ -20,7 +20,7 @@ class Menu extends \yii\widgets\Menu
      * @inheritdoc
      */
     public $linkTemplate = '<a data-route="{label}" href="{url}">{icon} {label}</a>';
-    public $submenuTemplate = "\n<ul class='nav'>\n{items}\n</ul>\n";
+    public $submenuTemplate = "\n<ul class='nav collapse'>\n{items}\n</ul>\n";
     public $activateParents = true;
     /**
      * @inheritdoc

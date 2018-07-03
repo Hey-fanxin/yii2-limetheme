@@ -6,10 +6,11 @@
 */
 namespace limefamily\limetheme\widgets;
 
+use Yii;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
-$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/limefamily/statictheme/dist');
+$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/limefamily/static-theme/dist');
 
 class NavBar extends \yii\base\widget
 {
@@ -23,8 +24,9 @@ class NavBar extends \yii\base\widget
 
     public $breadCrumbUrl = ['home'];
 
-    //  判断是否在登录状态中 显示登录人和退出按钮
-    public $is_login = false;
+    public $logoUrl = $directoryAsset . '/images/logo.png';
+
+    public $personUrl = $directoryAsset . '/images/perpon.png';
 
     public function run()
     {
@@ -55,14 +57,14 @@ class NavBar extends \yii\base\widget
         ,['class' =>"navbar-toggle", 'data-toggle' => "push-menu"]);
 
         return Html::tag('div',
-            Html::tag('a', Html::img($directoryAsset . '/images/logo.png', ['alt' => 'logo'])) . $buttonEle            
+            Html::tag('a', Html::img($this->logoUrl, ['alt' => 'logo'])) . $buttonEle            
         ,$headerOptions);
     }
     public function rightBox($options)
     {
         $rightOptions = ArrayHelper::remove($options, 'rightOptions', ['class' => 'navbar-right']);
 
-        $adminBox = $this->is_login ? $this->adminBox() : '';
+        $adminBox = Yii::$app->user->isGuest ? $this->adminBox() : '';
 
         return Html::tag('div',
             Html::tag('h4',$this->title) . $adminBox
@@ -71,15 +73,15 @@ class NavBar extends \yii\base\widget
     public function adminBox()
     {
         $conent = Html::tag('div',
-            Html::img($directoryAsset . '/images/perpon.png',["alt" => "person"])
+            Html::img($this->personUrl,["alt" => "person"])
         ,['class' => 'avatar']);
 
-        $conent += Html::tag('div',
+        $conent .= Html::tag('div',
             Html::tag('span', '你好') .
             Html::tag('span', $this->adminName . '同学')
         ,["class" => "name"]);
 
-        $conent += Html::tag('div',
+        $conent .= Html::tag('div',
             Html::a('退出', $this->out_url)
         ,["class" => "out"]);
 

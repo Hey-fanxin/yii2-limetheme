@@ -5,7 +5,7 @@ use yii\web\AssetBundle;
 
 class LimeFamilyAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/limefamily/statictheme/dist';
+    public $sourcePath = '@vendor/limefamily/static-theme/dist';
     public $css = [
         'css/limefamily.min.css',
     ];
