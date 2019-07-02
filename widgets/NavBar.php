@@ -10,7 +10,6 @@ use Yii;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
-$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/limefamily/static-theme/dist');
 
 class NavBar extends \yii\base\widget
 {
@@ -24,9 +23,9 @@ class NavBar extends \yii\base\widget
 
     public $breadCrumbUrl = ['home'];
 
-    public $logoUrl = $directoryAsset . '/images/logo.png';
+    public $logoUrl = '/images/logo.png';
 
-    public $personUrl = $directoryAsset . '/images/perpon.png';
+    public $personUrl = '/images/perpon.png';
 
     public function run()
     {
@@ -64,7 +63,7 @@ class NavBar extends \yii\base\widget
     {
         $rightOptions = ArrayHelper::remove($options, 'rightOptions', ['class' => 'navbar-right']);
 
-        $adminBox = Yii::$app->user->isGuest ? $this->adminBox() : '';
+        $adminBox = !Yii::$app->user->isGuest ? $this->adminBox() : '';
 
         return Html::tag('div',
             Html::tag('h4',$this->title) . $adminBox
