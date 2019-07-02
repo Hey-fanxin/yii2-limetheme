@@ -16,7 +16,7 @@
         "php": ">=5.4.0",
         "yiisoft/yii2": "~2.0.6",
         "yiisoft/yii2-bootstrap": "~3.3.0",
-        "limefamily/static-theme": "~1.1.*"
+        "limefamily/static-theme": "1.1.*"
     },
     "autoload": {
         "psr-4": {
