@@ -215,12 +215,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/namebjp/static-theme.git",
-                "reference": "3fdbc1174caaf7ced3d17884fb724f1ba9777734"
+                "reference": "4cdc64115f4d4e6bfe607402d3f59b01348ac276"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/namebjp/static-theme/zipball/3fdbc1174caaf7ced3d17884fb724f1ba9777734",
-                "reference": "3fdbc1174caaf7ced3d17884fb724f1ba9777734",
+                "url": "https://api.github.com/repos/namebjp/static-theme/zipball/4cdc64115f4d4e6bfe607402d3f59b01348ac276",
+                "reference": "4cdc64115f4d4e6bfe607402d3f59b01348ac276",
                 "shasum": ""
             },
             "require": {
@@ -254,7 +254,7 @@
                 "theme",
                 "yii2"
             ],
-            "time": "2019-07-19T08:35:02+00:00"
+            "time": "2019-07-19T09:53:58+00:00"
         },
         {
             "name": "yiisoft/yii2",
