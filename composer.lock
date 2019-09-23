@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "12944c5cd7088aced2b324367cad158d",
+    "content-hash": "7b6d34dd2a494b6c42dcd75ed5e438e5",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -71,7 +71,7 @@
             "version": "v1.3.2",
             "source": {
                 "type": "git",
-                "url": "git@github.com:bestiejs/punycode.js.git",
+                "url": "https://github.com/bestiejs/punycode.js.git",
                 "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3"
             },
             "dist": {
@@ -211,16 +211,16 @@
         },
         {
             "name": "limefamily/static-theme",
-            "version": "1.1.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/namebjp/static-theme.git",
-                "reference": "4cdc64115f4d4e6bfe607402d3f59b01348ac276"
+                "reference": "862fcf284374f11e23adbad5e0d6eceb8afecacb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/namebjp/static-theme/zipball/4cdc64115f4d4e6bfe607402d3f59b01348ac276",
-                "reference": "4cdc64115f4d4e6bfe607402d3f59b01348ac276",
+                "url": "https://api.github.com/repos/namebjp/static-theme/zipball/862fcf284374f11e23adbad5e0d6eceb8afecacb",
+                "reference": "862fcf284374f11e23adbad5e0d6eceb8afecacb",
                 "shasum": ""
             },
             "require": {
@@ -254,7 +254,7 @@
                 "theme",
                 "yii2"
             ],
-            "time": "2019-07-19T09:53:58+00:00"
+            "time": "2019-09-23T06:32:32+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -478,7 +478,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "limefamily/static-theme": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
