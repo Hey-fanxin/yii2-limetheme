@@ -262,7 +262,7 @@ class SidebarMenu extends Widget
             if ($route[0] !== '/' && Yii::$app->controller) {
                 $route = Yii::$app->controller->module->getUniqueId() . '/' . $route;
             }
-            if (ltrim($route, '/') !== $this->route) {
+            if(strpos($this->route, ltrim($route, '/')) === false){
                 return false;
             }
             unset($item['url']['#']);
