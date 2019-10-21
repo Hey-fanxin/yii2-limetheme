@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b6d34dd2a494b6c42dcd75ed5e438e5",
+    "content-hash": "aa42798518f5de334588f87eefa58068",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -215,12 +215,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/namebjp/static-theme.git",
-                "reference": "862fcf284374f11e23adbad5e0d6eceb8afecacb"
+                "reference": "166fee69b52e0476e32fa09a53aef2f044c2eb83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/namebjp/static-theme/zipball/862fcf284374f11e23adbad5e0d6eceb8afecacb",
-                "reference": "862fcf284374f11e23adbad5e0d6eceb8afecacb",
+                "url": "https://api.github.com/repos/namebjp/static-theme/zipball/166fee69b52e0476e32fa09a53aef2f044c2eb83",
+                "reference": "166fee69b52e0476e32fa09a53aef2f044c2eb83",
                 "shasum": ""
             },
             "require": {
@@ -254,7 +254,7 @@
                 "theme",
                 "yii2"
             ],
-            "time": "2019-09-23T06:32:32+00:00"
+            "time": "2019-10-21T07:07:11+00:00"
         },
         {
             "name": "yiisoft/yii2",
